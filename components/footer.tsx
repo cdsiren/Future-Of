@@ -20,7 +20,7 @@ const Footer = () => {
               <FiGithub className='hover:bg-black hover:text-white' />
             </a>
           </Link>
-          {/* ON CLICK EXPAND TO TYPE SOMETHING INPUT FIELD TO GATHER EMAIL ADDRESS */}
+          {/* ON CLICK EXPAND TO TYPE SOMETHING INPUT FIELD TO GATHER EMAIL ADDRESS; CREATE AN EMAIL CAPTURE COMPONENT TO DROP AT END OF EACH BLOG PLUG NAVBAR TOO */}
           <AiOutlineMail />
         </div>
       </Container>
