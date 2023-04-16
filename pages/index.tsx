@@ -1,41 +1,55 @@
-import Container from '../components/container'
-import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
-import Intro from '../components/intro'
-import Layout from '../components/layout'
-import { getAllPosts } from '../lib/api'
-import Head from 'next/head'
-import { CMS_NAME } from '../lib/constants'
-import Post from '../interfaces/post'
+import { useEffect, useState } from 'react';
+import Footer from '../components/footer';
+import BlogPosts from '../components/blog-posts';
+import Intro from '../components/intro';
+import Layout from '../components/layout';
+import { getAllPosts } from '../lib/api';
+import Head from 'next/head';
+import Post from '../interfaces/post';
+import { getLastRelease } from '../lib/getLastRelease';
+import { getLastBlock } from '../lib/getLastBlock';
+import Navbar from '../components/Navbar';
+import Meta from '../components/meta';
 
 type Props = {
-  allPosts: Post[]
+  allPosts: Post[],
+  decentNft: any,
+  blockNumber: number,
 }
 
-export default function Index({ allPosts }: Props) {
-  const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)
+export default function Index({ allPosts, decentNft, blockNumber }: Props) {
+  const posts = allPosts.slice(1);
+  const [active, setActive] = useState('Work');
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    function handleResize() {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Set initial dimensions on mount
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <>
-      <Layout>
-        <Head>
-          <title>{`Next.js Blog Example with ${CMS_NAME}`}</title>
-        </Head>
-        <Container>
-          <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
-      </Layout>
+    <Head>
+      <title>{`Charlie Work`}</title>
+    </Head>
+    <Meta />
+      <div className={`${dimensions.width <= 766 && 'bg-black text-white'} min-h-screen`}>
+        <Intro dimensions={dimensions} nft={decentNft} block={blockNumber} />
+        <div className='absolute bottom-0 w-full'>
+          <Navbar className="sticky bottom-0" dimensions={dimensions} />
+        </div>
+      </div>
+      {posts.length > 0 && <BlogPosts posts={posts}/>}
+      <Footer />
     </>
   )
 }
@@ -49,8 +63,14 @@ export const getStaticProps = async () => {
     'coverImage',
     'excerpt',
   ])
+  const decentNft = await getLastRelease();
+  const blockNumber = await getLastBlock();
 
   return {
-    props: { allPosts },
+    props: { 
+      allPosts,
+      decentNft,
+      blockNumber
+    },
   }
 }

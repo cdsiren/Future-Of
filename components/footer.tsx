@@ -1,6 +1,5 @@
 import Container from './container';
 import Link from 'next/link';
-import { AiOutlineMail } from 'react-icons/ai';
 import { RxTwitterLogo } from "react-icons/rx";
 import { FiGithub } from "react-icons/fi";
 
@@ -9,7 +8,7 @@ const Footer = () => {
     <footer className="border-t border-black">
       <Container>
         <div className='flex items-center gap-8 py-2'>
-          <p className='text-sm uppercase'>Contact</p>
+          <p className='text-sm uppercase font-light'>Contact</p>
           <Link legacyBehavior href="https://twitter.com/cdurbinxyz">
             <a target='_blank'>
               <RxTwitterLogo className='hover:bg-black hover:text-white' />
@@ -20,8 +19,6 @@ const Footer = () => {
               <FiGithub className='hover:bg-black hover:text-white' />
             </a>
           </Link>
-          {/* ON CLICK EXPAND TO TYPE SOMETHING INPUT FIELD TO GATHER EMAIL ADDRESS; CREATE AN EMAIL CAPTURE COMPONENT TO DROP AT END OF EACH BLOG PLUG NAVBAR TOO */}
-          <AiOutlineMail />
         </div>
       </Container>
     </footer>

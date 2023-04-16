@@ -1,23 +1,32 @@
-import { CMS_NAME } from '../lib/constants'
+import formatAddress from "../lib/formatAddress";
+import { contractType } from "../lib/contractType";
 
-const Intro = () => {
+const Intro = (props: any) => {
+
+  const rn = new Date();
+  const hours = rn.getHours();
+  let maybeMorning: string;
+  if (hours < 12) {
+    maybeMorning = 'am'
+  } else {
+    maybeMorning = 'pm';
+  }
+
+
   return (
-    <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
-      <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
-        Blog.
+    <section className="md:text-[70px] text-[48px] font-light tracking-wider leading-[70px] p-8">
+      <h1>
+        Charlie<br></br> Work
       </h1>
-      <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">
-        A statically generated blog example using{' '}
-        <a
-          href="https://nextjs.org/"
-          className="underline hover:text-blue-600 duration-200 transition-colors"
-        >
-          Next.js
-        </a>{' '}
-        and {CMS_NAME}.
-      </h4>
+      <div className="pt-8">
+        <p>website,</p>
+        <p>{props.dimensions.width} x {props.dimensions.height} px,</p>
+        <p className="break-all"><a className={props.dimensions.width <= 766 ? "hover:bg-white hover:text-black" : "hover:bg-black hover:text-white"} href={`https://hq.decent.xyz/${props.nft.chainId}/${contractType(props.nft.type)}/${props.nft.address}`} target="_blank">{props.loading ? "..." : props.nft.chainId+"."+props.nft.type+"."+formatAddress(props.nft.address)},</a></p>
+        <p><a className={props.dimensions.width <= 766 ? "hover:bg-white hover:text-black" : "hover:bg-black hover:text-white"} href={`https://etherscan.io/block/${props.block}`} target="_blank">{props.block} {maybeMorning},</a></p>
+        <p>New York, NY</p>
+      </div>
     </section>
   )
 }
 
-export default Intro
+export default Intro;

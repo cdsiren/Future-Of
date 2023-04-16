@@ -1,22 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Inter-Tight:wght@300;400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair-Display:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@100;200;300;400;500&display=swap');
 
 html,
 body {
   font-family: 'Inter Tight', sans-serif;
-  font-weight: 300;
-}
-
-.serif {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: larger;
+  font-weight: 100; /* thin */
+  font-weight: 200; /* extralight */
+  font-weight: 300; /* light */
+  font-weight: 400; /* regular */
+  font-weight: 500; /* medium */
 }
 
 ::-moz-selection { background-color: #000000; 
   color: #ffffff; } 
   ::selection { background-color: #000000; 
   color: #ffffff; }
+
+  @media (max-width: 766px) {
+    ::selection {
+      background-color: white;
+      color: black;
+    }
+  }
