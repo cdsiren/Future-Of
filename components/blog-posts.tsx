@@ -5,9 +5,9 @@ type Props = {
   posts: Post[]
 }
 
-const MoreStories = ({ posts }: Props) => {
-  return <div className='p-8 w-full min-h-[83vh]'>
-    <div className="grid grid-cols-5 font-light pb-4">
+const Work = ({ posts }: Props) => {
+  return <div className={`p-8 w-full min-h-[83vh]`}>
+    <div className="md:grid hidden grid-cols-5 font-light pb-4">
       <p>N°</p>
       <p>Project</p>
       <p>Type</p>
@@ -22,13 +22,11 @@ const MoreStories = ({ posts }: Props) => {
           title={post.title}
           coverImage={post.coverImage}
           date={post.date}
-          author={post.author}
           slug={post.slug}
-          excerpt={post.excerpt}
         />
       ))}
     </div>
   </div>
 }
 
-export default MoreStories
+export default Work;

@@ -12,13 +12,12 @@ const Intro = (props: any) => {
     maybeMorning = 'pm';
   }
 
-
   return (
-    <section className="md:text-[70px] text-[48px] font-light tracking-wider leading-[70px] p-8">
-      <h1>
+    <section className="font-light tracking-wider leading-[70px] p-8">
+      <h1 className="md:text-[70px] text-[48px]">
         Charlie<br></br> Work
       </h1>
-      <div className="pt-8">
+      <div className="pt-8 md:text-[70px] text-[40px]">
         <p>website,</p>
         <p>{props.dimensions.width} x {props.dimensions.height} px,</p>
         <p className="break-all"><a className={props.dimensions.width <= 766 ? "hover:bg-white hover:text-black" : "hover:bg-black hover:text-white"} href={`https://hq.decent.xyz/${props.nft.chainId}/${contractType(props.nft.type)}/${props.nft.address}`} target="_blank">{props.loading ? "..." : props.nft.chainId+"."+props.nft.type+"."+formatAddress(props.nft.address)},</a></p>

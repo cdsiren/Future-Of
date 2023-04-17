@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import Footer from '../components/footer';
 import BlogPosts from '../components/blog-posts';
 import Intro from '../components/intro';
+import About from '../components/about';
+import Readings from '../components/reading-list';
 import { getAllPosts } from '../lib/api';
 import Head from 'next/head';
 import Post from '../interfaces/post';
@@ -35,8 +37,8 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  function smoothScroll() {
-    const element = document.getElementById(active);
+  function smoothScroll(container: string) {
+    const element = document.getElementById(container);
     element?.scrollIntoView({ behavior: 'smooth' });
   }
 
@@ -47,13 +49,17 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
     </Head>
     <Meta />
       <div className={`${dimensions.width <= 766 && 'bg-black text-white'} min-h-screen`}>
-        <Intro dimensions={dimensions} nft={decentNft} block={blockNumber} />
+        <div id='intro'>
+          <Intro dimensions={dimensions} nft={decentNft} block={blockNumber} />
+        </div>
         <div className='absolute bottom-0 w-full'>
           <Navbar className="sticky bottom-0" dimensions={dimensions} active={active} setActive={setActive} smoothScroll={smoothScroll} />
         </div>
       </div>
-      <div id={active}>
-        {active === 'Work' && <BlogPosts posts={posts}/>}
+      <div id={active} className={`${dimensions.width <= 766 ? 'bg-black text-white' : 'bg-white text-black'}`}>
+        {active === 'Work' && <BlogPosts posts={posts} />}
+        {active === 'About' && <About />}
+        {active === 'Reading List' && <Readings />}
       </div>
       <Footer />
     </>
@@ -65,7 +71,6 @@ export const getStaticProps = async () => {
     'title',
     'date',
     'slug',
-    'author',
     'coverImage',
     'excerpt',
   ])
@@ -76,8 +81,8 @@ export const getStaticProps = async () => {
     props: { 
       allPosts,
       decentNft,
-      blockNumber
+      blockNumber,
     },
-    revalidate: 12
+    revalidate: 13
   }
 }
