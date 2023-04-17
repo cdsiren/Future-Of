@@ -6,10 +6,18 @@ type Props = {
 }
 
 const MoreStories = ({ posts }: Props) => {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32 border-t border-black">
-      {posts.map((post) => (
+  return <div className='p-8 w-full min-h-[83vh]'>
+    <div className="grid grid-cols-5 font-light pb-4">
+      <p>N°</p>
+      <p>Project</p>
+      <p>Type</p>
+      <p>Topic</p>
+      <p>Date</p>
+    </div>
+    <div>
+      {posts.map((post, i) => (
         <PostPreview
+          index={i}
           key={post.slug}
           title={post.title}
           coverImage={post.coverImage}
@@ -20,7 +28,7 @@ const MoreStories = ({ posts }: Props) => {
         />
       ))}
     </div>
-  )
+  </div>
 }
 
 export default MoreStories

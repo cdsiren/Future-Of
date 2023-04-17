@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import Footer from '../components/footer';
 import BlogPosts from '../components/blog-posts';
 import Intro from '../components/intro';
-import Layout from '../components/layout';
 import { getAllPosts } from '../lib/api';
 import Head from 'next/head';
 import Post from '../interfaces/post';
@@ -36,6 +35,11 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  function smoothScroll() {
+    const element = document.getElementById(active);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  }
+
   return (
     <>
     <Head>
@@ -45,10 +49,12 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
       <div className={`${dimensions.width <= 766 && 'bg-black text-white'} min-h-screen`}>
         <Intro dimensions={dimensions} nft={decentNft} block={blockNumber} />
         <div className='absolute bottom-0 w-full'>
-          <Navbar className="sticky bottom-0" dimensions={dimensions} />
+          <Navbar className="sticky bottom-0" dimensions={dimensions} active={active} setActive={setActive} smoothScroll={smoothScroll} />
         </div>
       </div>
-      {posts.length > 0 && <BlogPosts posts={posts}/>}
+      <div id={active}>
+        {active === 'Work' && <BlogPosts posts={posts}/>}
+      </div>
       <Footer />
     </>
   )
@@ -72,5 +78,6 @@ export const getStaticProps = async () => {
       decentNft,
       blockNumber
     },
+    revalidate: 12
   }
 }
