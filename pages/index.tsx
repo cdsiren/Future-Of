@@ -19,11 +19,11 @@ type Props = {
 }
 
 export default function Index({ allPosts, decentNft, blockNumber }: Props) {
-  const posts = allPosts.slice(1);
+  const posts = allPosts;
   const [active, setActive] = useState('Work');
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
-  console.log('test', allPosts);
+  // console.log('test', postDates)
 
   useEffect(() => {
     function handleResize() {
@@ -37,6 +37,19 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
     handleResize(); // Set initial dimensions on mount
 
     return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    async function sortPosts() {
+      if (allPosts.length) {
+        allPosts.forEach(item => {
+          const [month, day, year] = item.date.split(".");
+          item.date = new Date(`${year}-${month}-${day}`).toLocaleDateString();
+        });
+        allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      }
+    }
+    sortPosts();
   }, []);
 
   function smoothScroll(container: string) {
@@ -73,6 +86,8 @@ export const getStaticProps = async () => {
     'title',
     'coverImage',
     'date',
+    'type',
+    'topic',
     'slug',
   ])
   const decentNft = await getLastRelease();

@@ -7,9 +7,9 @@ type Props = {
 
 const Work = ({ posts }: Props) => {
   return <div className={`p-8 w-full min-h-[83vh]`}>
-    <div className="md:grid hidden grid-cols-5 font-light pb-4">
+    <div className="md:grid hidden grid-cols-6 font-light pb-4">
       <p>N°</p>
-      <p>Project</p>
+      <p className='col-span-2'>Project</p>
       <p>Type</p>
       <p>Topic</p>
       <p>Date</p>
@@ -22,6 +22,8 @@ const Work = ({ posts }: Props) => {
           title={post.title}
           coverImage={post.coverImage}
           date={post.date}
+          type={post.type}
+          topic={post.topic}
           slug={post.slug}
         />
       ))}

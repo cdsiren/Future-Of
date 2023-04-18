@@ -2,6 +2,8 @@
 title: 'Check Eligibility: A Roadmap to Navigate NFTs in 2023'
 coverImage: '/assets/blog/check-eligibility/cover.png'
 date: '01.02.2023'
+type: 'blog'
+topic: 'NFT Practice'
 ogImage:
   url: '/assets/blog/check-eligibility/cover.png'
 ---
@@ -20,7 +22,7 @@ _NFT releases targeting fan acquisition and retention are promising to drive 202
 
 The revenue funnel for creators begins with web2 social distribution.  The goal is to convert the greatest percentage of your social impressions into paying customers.  Every tool built for the cultural markets\* exists between these bounds and crypto’s value is principally at the bottom of the funnel.  NFTs certainly can introduce creators to new audiences; however, the demonstrated 10x value is more efficient monetization.  Improved flow of funds and the ability to capture value parallel to content releases via the wisdom of crowds promises to revolutionize the cultural markets.
 
-In the bear market, bottom funnel monetization via NFTs has become significantly more difficult as [speculative returns have plummeted](https://dune.com/rchen8/opensea), eroding a principal collector motivation, and collectors have less surplus income.  With fan-to-paying fan conversion deteriorating, many creators are intelligently revisiting the top of their funnels.
+In the bear market, bottom funnel monetization via NFTs has become significantly more difficult as **[speculative returns have plummeted](https://dune.com/rchen8/opensea)**, eroding a principal collector motivation, and collectors have less surplus income.  With fan-to-paying fan conversion deteriorating, many creators are intelligently revisiting the top of their funnels.
 
 Something we have believed at Decent since the beginning is that established social networks are poised to remain the primary distribution channel, but blockchain applications will become the financial rails.  _Each will capitalize on their comparative advantages to open new frontiers._  **The most pivotal step for creators using crypto is converting as many web2 impressions to addressable wallets as possible**.  This is important because, today, creators principally earn as a derivative of platforms’ or intermediaries, boxed into their business models.  Fans with wallets enables creators to monetize their work in real-time, completely autonomously.  Autonomous monetization is extremely important; I will cover why in separate posts - _is Spotify the limiting function or force multiplier for an artist’s income_?
 
@@ -37,15 +39,15 @@ _To creators: you can maximize that value, remove uncertainty or target a massiv
 
 _Breaking down the component pieces of web3 + 3 social auth_
 
-To claim, collectors first hit "[Check Eligibility](https://mint.onebigidea.xyz/)" and are prompted to follow austin\_hurwitz.lens Lens, verify their email address and follow @austin\_hurwitz on Twitter before minting. Once completed collectors are prompted to join Austin’s Guild to gain access to the OBI Telegram group.
+To claim, collectors first hit "**[Check Eligibility](https://mint.onebigidea.xyz/)**" and are prompted to follow austin\_hurwitz.lens Lens, verify their email address and follow @austin\_hurwitz on Twitter before minting. Once completed collectors are prompted to join Austin’s Guild to gain access to the OBI Telegram group.
 
 **Auth flow components:**
 
 *   **Connect wallet:**
     
-    *   _How_: using [Privy](http://privy.io/) as the wallet provider.
+    *   _How_: using **[Privy](http://privy.io/)** as the wallet provider.
         
-    *   _Why interesting_: Privy is part of a new breed of wallets that creates a [DID](https://disco.mirror.xyz/UqHHismf1ookU2JMMkX2DPBA5PiTVF7-4vQkshTukEg) for the user on connection.  This card can associate email and social handles with an address
+    *   _Why interesting_: Privy is part of a new breed of wallets that creates a **[DID](https://disco.mirror.xyz/UqHHismf1ookU2JMMkX2DPBA5PiTVF7-4vQkshTukEg)** for the user on connection.  This card can associate email and social handles with an address
         
 *   **Confirm email:**
     
@@ -73,7 +75,7 @@ To claim, collectors first hit "[Check Eligibility](https://mint.onebigidea.xyz/
                 
                 *   On-chain validation means bots cannot attack the contract without engaging in at least one prior step
                     
-                *   Because anyone can claim a follower NFT from Lens, it is an extremely weak measure.  However, we believe it lays the groundwork for exciting innovation in sybil resistance by using web3 social platforms for Proof of Humanity.  This is a strong use case for Lens as it is all on-chain, and there are already filtering mechanisms based on degrees of separation between followers to identity bots + their [Proof of Humanity API](https://twitter.com/StaniKulechov/status/1609618602595958785?s=20&t=_T2KNO6BpKQqMLj6BvNDrw).
+                *   Because anyone can claim a follower NFT from Lens, it is an extremely weak measure.  However, we believe it lays the groundwork for exciting innovation in sybil resistance by using web3 social platforms for Proof of Humanity.  This is a strong use case for Lens as it is all on-chain, and there are already filtering mechanisms based on degrees of separation between followers to identity bots + their **[Proof of Humanity API](https://twitter.com/StaniKulechov/status/1609618602595958785?s=20&t=_T2KNO6BpKQqMLj6BvNDrw)**.
                     
                 *   _Algorithmic social proof is an extremely compelling PoH solution and_ _could be web3 social’s killer app_ (if you’re already working on this - then I’d love to chat!)
                     
@@ -105,7 +107,7 @@ To claim, collectors first hit "[Check Eligibility](https://mint.onebigidea.xyz/
 **Launch your next project with a Decent template!**
 ----------------------------------------------------
 
-_The social auth template is the fourth in a series that enables creators and developers to get up and running with custom minting and deployment sites faster than anywhere else._  We will be publishing this library to [Decent](http://decent.xyz/) in the coming days, but please see the list below in the meantime to start playing around today.
+_The social auth template is the fourth in a series that enables creators and developers to get up and running with custom minting and deployment sites faster than anywhere else._  We will be publishing this library to **[Decent](http://decent.xyz/)** in the coming days, but please see the list below in the meantime to start playing around today.
 
 **[Start Decent](https://github.com/decentxyz/Start-Decent):** Next JS, RainbowKit, TailwindCSS & Decent SDK template to demonstrate how to use the Decent SDK and set up a custom deployment site.
 
@@ -135,7 +137,7 @@ Template pages will be prominently featured on Decent in the coming weeks.  Cre
 
 \*_Think Creator Economy.  I am not a huge fan of the term “Creator Economy.”  It has become overused and naming the market by its participants does not reflect the nature of its dynamics.  At Decent, we use “Cultural Markets” instead.  We define Cultural Markets as those in which price is almost entirely behavioral._
 
-_The price of a cultural good (a song, piece of art, a public good, a meme or viral social post) is continuous and determined strictly by how many people agree that the product or its creator is valuable (fwiw this is also why bonding curves are so attractive - see Simon’s piece on [trading memes](https://medium.com/@simondlr/introducing-curation-markets-trade-popularity-of-memes-information-with-code-70bf6fed9881)).  I believe consumer preference (& how taste is formed) is a more accurate indicator of what drives the creator economy so like to use cultural markets instead._
+_The price of a cultural good (a song, piece of art, a public good, a meme or viral social post) is continuous and determined strictly by how many people agree that the product or its creator is valuable (fwiw this is also why bonding curves are so attractive - see Simon’s piece on **[trading memes](https://medium.com/@simondlr/introducing-curation-markets-trade-popularity-of-memes-information-with-code-70bf6fed9881)**).  I believe consumer preference (& how taste is formed) is a more accurate indicator of what drives the creator economy so like to use cultural markets instead._
 
 _\*\*The token-gate method in Decent’s Editions and Rentable contracts is one of the most exciting and least well understood features in the Decent protocol.  It can have significant implications across both NFTs & DeFi (anyone’s mind wander to fixed exchange rates??)  We’ll be publishing an additional blog to highlight all its potential implementations across NFTs and DeFi_.
 

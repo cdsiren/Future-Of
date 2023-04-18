@@ -7,6 +7,8 @@ type Props = {
   title: string
   coverImage: string
   date: string
+  type: string
+  topic: string
   slug: string
 }
 
@@ -15,6 +17,8 @@ const PostPreview = ({
   title,
   coverImage,
   date,
+  type,
+  topic,
   slug,
 }: Props) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
@@ -23,14 +27,14 @@ const PostPreview = ({
     <Link as={`/posts/${slug}`} href="/posts/[slug]" className="relative">
       <div
         id="project"
-        className="grid-cols-5 items-center font-light py-3 z-20 hover:underline cursor-pointer md:grid hidden"
+        className="grid-cols-6 items-center font-light py-3 z-20 hover:underline cursor-pointer md:grid hidden"
         onMouseEnter={() => setIsMouseOver(true)}
         onMouseLeave={() => setIsMouseOver(false)}
       >
         <p>{index + 1}</p>
-        <p className='pr-6'>{title}</p>
-        <p>type</p>
-        <p>topic</p>
+        <p className='pr-6 col-span-2'>{title}</p>
+        <p>{type}</p>
+        <p>{topic}</p>
         <p>{date}</p>
       </div>
       {isMouseOver && (
@@ -43,9 +47,9 @@ const PostPreview = ({
       <Link as={`/posts/${slug}`} href="/posts/[slug]" className="relative">
         <p>N° {index + 1}. {title}</p>
         <div className='grid grid-cols-3'>
-          <p>type</p>
+          <p>{type}</p>
           <p className='text-center'>{date}</p>
-          <p className='text-right'>topic</p>
+          <p className='text-right'>{topic}</p>
         </div>
         <Image src={coverImage} alt="img" width={600} height={600} />
       </Link>

@@ -26,7 +26,7 @@ export default function Post({ post, preview }: Props) {
   return (
     <Layout preview={preview}>
       <Container>
-        <Header />
+        <Header type={post.type} title={post.title} />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
@@ -59,11 +59,13 @@ type Params = {
 export async function getStaticProps({ params }: Params) {
   const post = getPostBySlug(params.slug, [
     'title',
-    'date',
-    'slug',
-    'content',
-    'ogImage',
     'coverImage',
+    'date',
+    'type',
+    'topic',
+    'slug',
+    'ogImage',
+    'content',
   ])
   const content = await markdownToHtml(post.content || '')
 

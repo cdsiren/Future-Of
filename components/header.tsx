@@ -1,12 +1,9 @@
 import Link from 'next/link'
 
-const Header = () => {
+const Header = (props: any) => {
   return (
-    <h2 className="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8">
-      <Link href="/" className="hover:underline">
-        Blog
-      </Link>
-      .
+    <h2 className="font-light mb-12 mt-8">{'>>'}
+      <Link href="/" className="hover:text-orange-400">Home</Link> / Posts / {props.type} / <span className='text-orange-400'>{props.title}</span>.
     </h2>
   )
 }
