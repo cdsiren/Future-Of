@@ -23,6 +23,8 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
   const [active, setActive] = useState('Work');
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
+  console.log('test', allPosts);
+
   useEffect(() => {
     function handleResize() {
       setDimensions({
@@ -69,10 +71,9 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
 export const getStaticProps = async () => {
   const allPosts = getAllPosts([
     'title',
+    'coverImage',
     'date',
     'slug',
-    'coverImage',
-    'excerpt',
   ])
   const decentNft = await getLastRelease();
   const blockNumber = await getLastBlock();
