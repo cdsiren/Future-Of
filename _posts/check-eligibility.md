@@ -2,7 +2,7 @@
 title: 'Check Eligibility: A Roadmap to Navigate NFTs in 2023'
 coverImage: '/assets/blog/check-eligibility/cover.png'
 date: '01.02.2023'
-type: 'blog'
+type: 'Blog'
 topic: 'NFT Practice'
 ogImage:
   url: '/assets/blog/check-eligibility/cover.png'
