@@ -46,7 +46,7 @@ const PostPreview = ({
     <div className='md:hidden flex justify-center font-light text-sm space-y-2 pb-8'>
       <Link as={`/posts/${slug}`} href="/posts/[slug]" className="relative">
         <p>N° {index + 1}. {title}</p>
-        <div className='grid grid-cols-3'>
+        <div className='grid grid-cols-3 py-1'>
           <p>{type}</p>
           <p className='text-center'>{date}</p>
           <p className='text-right'>{topic}</p>

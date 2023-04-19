@@ -6,6 +6,7 @@ type Props = {
   date: string
   excerpt: string
   author: string
+  topic: string
   slug: string
 }
 
@@ -15,11 +16,12 @@ const ReadingPreview = ({
   date,
   excerpt,
   author,
+  topic,
   slug,
 }: Props) => {
 
   return <>
-    <Link href={slug} className="relative">
+    <a className='relative' href={slug} target='_blank'>
       <div
         id="project"
         className="grid-cols-5 items-center font-light py-3 z-20 hover:underline cursor-pointer md:grid hidden"
@@ -30,19 +32,21 @@ const ReadingPreview = ({
         <p>topic</p>
         <p>{date}</p>
       </div>
-    </Link>
+    </a>
     <div className='md:hidden flex justify-center font-light text-sm space-y-2 pb-8'>
-      <Link href={slug}>
-        <p>N° {index + 1}. {title}</p>
-        <div className='grid grid-cols-3'>
-          <p>{author}</p>
-          <p className='text-center'>{date}</p>
-          <p className='text-right'>topic</p>
-        </div>
+      <div>
+        <a className='hover:underline' href={slug} target='_blank'>
+          <p>N° {index + 1}. {title}</p>
+          <div className='grid grid-cols-3 py-1'>
+            <p>{author}</p>
+            <p className='text-center'>{date}</p>
+            <p className='text-right'>{topic}</p>
+          </div>
+        </a>
         <div>
           {excerpt}
         </div>
-      </Link>
+      </div>
     </div>
   </>
 }

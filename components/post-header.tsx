@@ -1,4 +1,5 @@
-import PostTitle from './post-title'
+import PostTitle from './post-title';
+import Image from 'next/image';
 
 type Props = {
   title: string
@@ -10,13 +11,10 @@ const PostHeader = ({ title, coverImage, date }: Props) => {
   return (
     <>
       <PostTitle>{title}</PostTitle>
-      <div className="hidden md:block md:mb-12">
+      <div className="mb-8 md:mb-16 max-w-3xl mx-auto flex justify-center">
+        <Image src={coverImage} alt="img" width={600} height={600} />
       </div>
-      <div className="mb-8 md:mb-16 sm:mx-0">
-      </div>
-      <div className="max-w-2xl mx-auto">
-        <div className="block md:hidden mb-6">
-        </div>
+      <div className="max-w-3xl mx-auto">
         <div className="mb-6 text-lg">{date}</div>
       </div>
     </>
