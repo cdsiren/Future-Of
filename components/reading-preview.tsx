@@ -24,12 +24,12 @@ const ReadingPreview = ({
     <a className='relative' href={slug} target='_blank'>
       <div
         id="project"
-        className="grid-cols-5 items-center font-light py-3 z-20 hover:underline cursor-pointer md:grid hidden"
+        className="grid-cols-5 items-center font-light py-3 z-20 hover:text-orange-400 cursor-pointer md:grid hidden"
       >
         <p>{index + 1}</p>
         <p>{title}</p>
         <p>{author}</p>
-        <p>topic</p>
+        <p>{topic}</p>
         <p>{date}</p>
       </div>
     </a>

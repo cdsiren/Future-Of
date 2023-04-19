@@ -21,7 +21,7 @@ type Props = {
 export default function Index({ allPosts, decentNft, blockNumber }: Props) {
   const posts = allPosts;
   const [active, setActive] = useState('Work');
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [dimensions, setDimensions] = useState({ width: 55555, height: 55555 });
 
   // console.log('test', postDates)
 
@@ -67,7 +67,7 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
         <div id='intro'>
           <Intro dimensions={dimensions} nft={decentNft} block={blockNumber} />
         </div>
-        <div className='absolute bottom-0 w-full'>
+        <div id='navbar' className='absolute bottom-0 w-full'>
           <Navbar className="sticky bottom-0" dimensions={dimensions} active={active} setActive={setActive} smoothScroll={smoothScroll} />
         </div>
       </div>

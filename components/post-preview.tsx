@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import Accordion from './accordian';
 
 type Props = {
   index: number
@@ -21,15 +22,13 @@ const PostPreview = ({
   topic,
   slug,
 }: Props) => {
-  const [isMouseOver, setIsMouseOver] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return <>
     <Link as={`/posts/${slug}`} href="/posts/[slug]" className="relative">
-      <div
-        id="project"
-        className="grid-cols-6 items-center font-light py-3 z-20 hover:underline cursor-pointer md:grid hidden"
-        onMouseEnter={() => setIsMouseOver(true)}
-        onMouseLeave={() => setIsMouseOver(false)}
+      <div id="project" className="grid-cols-6 items-center font-light py-3 z-20 hover:text-orange-400 cursor-pointer md:grid hidden"
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
       >
         <p>{index + 1}</p>
         <p className='pr-6 col-span-2'>{title}</p>
@@ -37,11 +36,7 @@ const PostPreview = ({
         <p>{topic}</p>
         <p>{date}</p>
       </div>
-      {isMouseOver && (
-        <div className="flex justify-center">
-          <Image src={coverImage} alt="img" width={600} height={600} />
-        </div>
-      )}
+      <Accordion className="absolute mx-auto w-full z-10" isOpen={isOpen} coverImage={coverImage} />
     </Link>
     <div className='md:hidden flex justify-center font-light text-sm space-y-2 pb-8'>
       <Link as={`/posts/${slug}`} href="/posts/[slug]" className="relative">

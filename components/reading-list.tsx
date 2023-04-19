@@ -19,7 +19,8 @@ const Readings = () => {
           date={article.date}
           author={article.author}
           slug={article.slug}
-          excerpt={article.excerpt}
+          excerpt={article.excerpt} 
+          topic={article.topic}
         />
       ))}
     </div>

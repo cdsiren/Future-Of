@@ -24,3 +24,12 @@ body {
       color: black;
     }
   }
+
+  .accordion {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .accordion-item {
+    margin-bottom: 10px;
+  }
