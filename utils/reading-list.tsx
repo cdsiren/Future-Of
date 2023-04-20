@@ -8,6 +8,14 @@ const ReadingList = [
     slug: "https://medium.com/@simondlr/introducing-curation-markets-trade-popularity-of-memes-information-with-code-70bf6fed9881",
   },
   {
+    title: "Are Markets Efficient?",
+    date: "2016",
+    author: "Fama & Thaler",
+    excerpt: "Many economists view financial markets as efficient, with prices incorporating all information about future values. Behavioral economists say that model simply doesn’t reflect how markets actually work. So are markets efficient?",
+    topic: "Economics",
+    slug: "https://www.chicagobooth.edu/review/are-markets-efficient",
+  },
+  {
     title: "Squad Wealth",
     date: "2020",
     author: "Sam Hart",

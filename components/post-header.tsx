@@ -12,7 +12,7 @@ const PostHeader = ({ title, coverImage, date }: Props) => {
     <>
       <PostTitle>{title}</PostTitle>
       <div className="mb-8 md:mb-16 max-w-3xl mx-auto flex justify-center">
-        <Image src={coverImage} alt="img" width={600} height={600} />
+        <Image src={coverImage} alt="img" width={500} height={500} />
       </div>
       <div className="max-w-3xl mx-auto">
         <div className="mb-6 text-lg">{date}</div>

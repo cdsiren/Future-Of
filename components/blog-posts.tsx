@@ -18,6 +18,7 @@ const Work = ({ posts }: Props) => {
       {posts.map((post, i) => (
         <PostPreview
           index={i}
+          length={posts.length}
           key={post.slug}
           title={post.title}
           coverImage={post.coverImage}

@@ -21,7 +21,7 @@ type Props = {
 export default function Index({ allPosts, decentNft, blockNumber }: Props) {
   const posts = allPosts;
   const [active, setActive] = useState('Work');
-  const [dimensions, setDimensions] = useState({ width: 55555, height: 55555 });
+  const [dimensions, setDimensions] = useState({ width: 800, height: 800 });
 
   // console.log('test', postDates)
 
@@ -63,7 +63,7 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
       <title>{`Charlie Work`}</title>
     </Head>
     <Meta />
-      <div className={`${dimensions.width <= 766 && 'bg-black text-white'} min-h-screen`}>
+      <div className={`${dimensions.width <= 785 && 'bg-black text-white'} min-h-screen`}>
         <div id='intro'>
           <Intro dimensions={dimensions} nft={decentNft} block={blockNumber} />
         </div>
@@ -71,9 +71,9 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
           <Navbar className="sticky bottom-0" dimensions={dimensions} active={active} setActive={setActive} smoothScroll={smoothScroll} />
         </div>
       </div>
-      <div id={active} className={`${dimensions.width <= 766 ? 'bg-black text-white' : 'bg-white text-black'}`}>
+      <div id={active} className={`${dimensions.width <= 785 ? 'bg-black text-white' : 'bg-white text-black'}`}>
         {active === 'Work' && <BlogPosts posts={posts} />}
-        {active === 'About' && <About />}
+        {active === 'About' && <About width={dimensions.width} />}
         {active === 'Reading List' && <Readings />}
       </div>
       <Footer />

@@ -5,6 +5,7 @@ import Accordion from './accordian';
 
 type Props = {
   index: number
+  length: number
   title: string
   coverImage: string
   date: string
@@ -15,6 +16,7 @@ type Props = {
 
 const PostPreview = ({
   index,
+  length,
   title,
   coverImage,
   date,
@@ -36,7 +38,7 @@ const PostPreview = ({
         <p>{topic}</p>
         <p>{date}</p>
       </div>
-      <Accordion className="absolute mx-auto w-full z-10" isOpen={isOpen} coverImage={coverImage} />
+      {index + 1 !== length && <Accordion className={`absolute mx-auto w-full z-10`} isOpen={isOpen} coverImage={coverImage} />}
     </Link>
     <div className='md:hidden flex justify-center font-light text-sm space-y-2 pb-8'>
       <Link as={`/posts/${slug}`} href="/posts/[slug]" className="relative">
@@ -46,7 +48,9 @@ const PostPreview = ({
           <p className='text-center'>{date}</p>
           <p className='text-right'>{topic}</p>
         </div>
-        <Image src={coverImage} alt="img" width={600} height={600} />
+        <div className='flex justify-center'>
+          <Image src={coverImage} alt="img" width={400} height={400} />
+        </div>
       </Link>
     </div>
   </>

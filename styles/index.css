@@ -18,7 +18,7 @@ body {
   ::selection { background-color: #000000; 
   color: #ffffff; }
 
-  @media (max-width: 766px) {
+  @media (max-width: 785px) {
     ::selection {
       background-color: white;
       color: black;

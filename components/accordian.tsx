@@ -17,7 +17,7 @@ const Accordion = (props:any) => {
         >
           {(ref) => (
             <div className="flex justify-center" ref={ref}>
-              <Image src={props.coverImage} alt="img" width={300} height={300} />
+              <Image src={props.coverImage} alt="img" width={400} height={400} />
             </div>
           )}
         </Transition>
