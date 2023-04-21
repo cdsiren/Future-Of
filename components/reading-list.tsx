@@ -3,9 +3,9 @@ import ReadingList from '../utils/reading-list';
 
 const Readings = () => {
   return <div className={`p-8 w-full min-h-[83vh]`}>
-    <div className="md:grid hidden grid-cols-5 font-light pb-4">
+    <div className="md:grid hidden grid-cols-6 font-light pb-4">
       <p>N°</p>
-      <p>Title</p>
+      <p className='col-span-2'>Title</p>
       <p>Author</p>
       <p>Topic</p>
       <p>Date</p>

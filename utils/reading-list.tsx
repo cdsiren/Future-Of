@@ -1,6 +1,6 @@
 const ReadingList = [
   {
-    title: "Introducing Curation Markets: Trade Popularity of Memes & Information",
+    title: "Introducing Curation Markets",
     date: "2017",
     author: "Simon de la Rouviere",
     excerpt: "Each topic/meme/idea/goal has an associated token of value that is used to curate information inside it.  Using Ethereum as a programmable, distributed, shared ledger, these groups can mint a token of value according to agreed upon rules without a centralized 3rd party being involved. In other words, a specific entity is not involved in the creation process of the tokens of value..",
@@ -18,7 +18,7 @@ const ReadingList = [
   {
     title: "Squad Wealth",
     date: "2020",
-    author: "Sam Hart",
+    author: "Hart, Shorin & Lotti",
     excerpt: `Group identity. Shared space. Vibes. These not only enable the creation of social capital, but strengthen the squad's capacity to organize, minimizing transaction costs and leading to greater productive capacities and resilience; this is "the nature of the squad." But while squads can be viewed as a "nexus of contracts", unlike the Coasean firm, they are without legal structure. Social contracts are instead effected through the unspoken bonds of mutual respect and ingroup norms.`,
     topic: "Mechanism Design",
     slug: "https://otherinter.net/research/squad-wealth/",
@@ -26,7 +26,7 @@ const ReadingList = [
   {
     title: "A Guide to Designing Effective NFT Launches",
     date: "2021",
-    author: "Hasu",
+    author: "Hasu & Agnihotri",
     excerpt: `Most of these launches employed a fixed-price, first-come-first-served (FCFS) mechanism. With low prices and excessive demand, competition to acquire such NFTs transitioned from the contract sale to a gas auction in the mempool.`,
     topic: "Mechanism Design",
     slug: "https://www.paradigm.xyz/2021/10/a-guide-to-designing-effective-nft-launches",
@@ -40,9 +40,9 @@ const ReadingList = [
     slug: "https://nodeguardians.io/dev-hub/quests/rollups",
   },
   {
-    title: "Analyzing Stock Market Movements Using Twitter Sentiment Analysis",
+    title: "Analyzing Stock Market Movements Using Twitter",
     date: "2012",
-    author: "Alejo Salles",
+    author: "Rao & Srivastava",
     excerpt: `Where Mt^Positive and Mt^Negative represent number of positive or negative tweets on a particular day t. Logarithm of bullishness measures the share of surplus positive signals and also gives more weight to larger number of messages in a specific sentiment (positive or negative). Message volume for a time interval t is simply defined as natural logarithm of total number of tweets for a specific stock/index which is ln(Mt^Positive+Mt^Negative). The agreement among positive and negative tweet messages is defined by:`,
     topic: "Coordination",
     slug: "https://dl.acm.org/doi/pdf/10.5555/2456719.2456923",
