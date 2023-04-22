@@ -33,3 +33,18 @@ body {
   .accordion-item {
     margin-bottom: 10px;
   }
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+}

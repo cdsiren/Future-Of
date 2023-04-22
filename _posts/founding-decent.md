@@ -3,6 +3,7 @@ title: 'Startup Spotlight: Decent'
 coverImage: '/assets/blog/founding-decent/cover.jpg'
 date: '11.18.2021'
 type: 'Interview'
+excerpt: This interview contains my thoughts on the music industry and NFTs that made me excited to found Decent.  The vision for Decent has changed dramatically (we are no longer in music at all); however, thoughts around what web3 can offer are all still relevant.
 topic: 'Creator Economy'
 ogImage:
   url: '/assets/blog/founding-decent/cover.jpg'

@@ -7,11 +7,10 @@ import PostHeader from '../../components/post-header';
 import Layout from '../../components/layout';
 import { getPostBySlug, getAllPosts } from '../../lib/api';
 import PostTitle from '../../components/post-title';
-import Head from 'next/head';
 import markdownToHtml from '../../lib/markdownToHtml';
 import type PostType from '../../interfaces/post';
 import Footer from '../../components/footer';
-import Image from 'next/image';
+import Meta from "../../components/meta";
 
 type Props = {
   post: PostType
@@ -35,12 +34,9 @@ export default function Post({ post, preview }: Props) {
         ) : (
           <>
             <article className="mb-32">
-              <Head>
-                <title>{title}</title>
-                <meta property="og:image" content={post.ogImage.url} />
-              </Head>
+              <Meta title={title} description={post.excerpt} url={`https://cdurbin.xyz/posts/${post.slug}`} image={post.ogImage.url} />
               <PostHeader
-                title={post.title}
+                title={title}
                 coverImage={post.coverImage}
                 date={post.date}
               />
@@ -68,6 +64,7 @@ export async function getStaticProps({ params }: Params) {
     'date',
     'type',
     'topic',
+    'excerpt',
     'slug',
     'ogImage',
     'content',

@@ -1,7 +1,8 @@
-import Container from './container';
 import Link from 'next/link';
 import { RxTwitterLogo } from "react-icons/rx";
 import { FiGithub } from "react-icons/fi";
+import { AiOutlineMail } from "react-icons/ai";
+import EmailCapture from './email-capture';
 
 const Footer = () => {
   return (
@@ -18,6 +19,10 @@ const Footer = () => {
             <FiGithub className='hover:bg-black hover:text-white' />
           </a>
         </Link>
+        <div className='flex gap-2 items-center'>
+          <AiOutlineMail />
+          <EmailCapture className="text-xs" />
+        </div>
       </div>
     </footer>
   )

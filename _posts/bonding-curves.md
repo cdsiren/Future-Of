@@ -3,6 +3,7 @@ title: 'Simulating Bonding Curves'
 coverImage: '/assets/blog/bonding-curves/cover.png'
 date: '04.07.2023'
 type: 'Model'
+excerpt: Bonding curves enable the price of a token to change with the quantity in circulation.  They are used throughout DeFi because they uniquely enable both dynamic pricing and automatic liquidity.
 topic: 'Mechanism Design'
 ogImage:
   url: '/assets/blog/bonding-curves/cover.png'

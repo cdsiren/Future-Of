@@ -13,17 +13,20 @@ const Intro = (props: any) => {
   }
 
   return (
-    <section className="font-light tracking-wider leading-[70px] p-8">
-      <h1 className="md:text-[70px] text-[48px]">
+    <section className={`${props.dimensions.height >= 1050 ? "md:leading-[115px] md:text-[115px] sm:text-[92px] text-[44px]" : props.dimensions.height >= 780 ? "md:leading-[80px] md:text-[80px] sm:text-[78px] text-[44px]" : "md:leading-[70px] md:text-[70px] text-[38px]"} font-light tracking-wider p-8 min-h-screen flex flex-col justify-between`}>
+      <h1>
         Charlie<br></br> Work
       </h1>
-      <div className="pt-8 md:text-[70px] text-[40px]">
-        <p>website,</p>
-        <p>{props.dimensions.width} x {props.dimensions.height} px,</p>
-        <p className="break-all"><a className={props.dimensions.width <= 785 ? "hover:bg-white hover:text-black" : "hover:bg-black hover:text-white"} href={`https://hq.decent.xyz/${props.nft.chainId}/${contractType(props.nft.type)}/${props.nft.address}`} target="_blank">{props.loading ? "..." : props.nft.chainId+"."+props.nft.type+"."+formatAddress(props.nft.address)},</a></p>
-        <p><a className={props.dimensions.width <= 785 ? "hover:bg-white hover:text-black" : "hover:bg-black hover:text-white"} href={`https://etherscan.io/block/${props.block}`} target="_blank">{props.block} {maybeMorning} {`{revalidate: 12}`},</a></p>
-        <p>New York, NY</p>
+      <div className="flex items-center">
+        <div>
+          <p className="hidden sm:inline-block">desktop,</p><p className="sm:hidden">mobile,</p>
+          <p>{props.dimensions.width} x {props.dimensions.height} px,</p>
+          <p className="break-all"><a className={props.dimensions.width <= 785 ? "hover:bg-white hover:text-black" : "hover:bg-black hover:text-white"} href={`https://hq.decent.xyz/${props.nft.chainId}/${contractType(props.nft.type)}/${props.nft.address}`} target="_blank">{props.loading ? "..." : props.nft.chainId+"."+props.nft.type+"."+formatAddress(props.nft.address)},</a></p>
+          <p><a className={props.dimensions.width <= 785 ? "hover:bg-white hover:text-black" : "hover:bg-black hover:text-white"} href={`https://etherscan.io/block/${props.block}`} target="_blank">{props.block} {maybeMorning} {`{revalidate: 12}`},</a></p>
+          <p>New York, NY</p>
+        </div>
       </div>
+      <div className="pb-16"></div>
     </section>
   )
 }

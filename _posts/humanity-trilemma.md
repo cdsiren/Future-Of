@@ -3,6 +3,7 @@ title: 'Navigating the Humanity Trilemma with NFTs'
 coverImage: '/assets/blog/humanity-trilemma/cover.png'
 date: '01.31.2023'
 type: 'Blog'
+excerpt: What’s next for NFTs? If the speculative bull market felt like a fever dream, the chill of the bear market has jolted the NFT world awake. In this state of clarity, it appears that non-financial NFTs might have their day in the sun. Non-financial NFT might sound like an oxymoron; in many ways, the term contradicts NFTs' demonstrated killer-app of equipping creators with capital markets.
 topic: 'NFT Theory'
 ogImage:
   url: '/assets/blog/humanity-trilemma/cover.png'

@@ -3,6 +3,7 @@ title: 'What Lies Beyond Patronage?'
 coverImage: '/assets/blog/beyond-patronage/cover.jpg'
 date: '03.01.2022'
 type: 'Blog'
+excerpt: How can an independent creator build a vibrant career?  This series of posts will explore the  well-documented and romanticized pursuit of individual creation, without defaulting to creator monetization as the keystone problem-to-be-solved.  Past iterations of this problem statement have considered this a one-sided question of patronage or exchange
 topic: 'Creator Economy'
 ogImage:
   url: '/assets/blog/beyond-patronage/cover.jpg'

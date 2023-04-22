@@ -5,7 +5,6 @@ import Intro from '../components/intro';
 import About from '../components/about';
 import Readings from '../components/reading-list';
 import { getAllPosts } from '../lib/api';
-import Head from 'next/head';
 import Post from '../interfaces/post';
 import { getLastRelease } from '../lib/getLastRelease';
 import { getLastBlock } from '../lib/getLastBlock';
@@ -59,11 +58,8 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
 
   return (
     <>
-    <Head>
-      <title>{`Charlie Work`}</title>
-    </Head>
     <Meta />
-      <div className={`${dimensions.width <= 785 && 'bg-black text-white'} min-h-screen`}>
+      <div className={`${dimensions.width <= 785 && 'bg-black text-white'}`}>
         <div id='intro'>
           <Intro dimensions={dimensions} nft={decentNft} block={blockNumber} />
         </div>
@@ -71,7 +67,7 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
           <Navbar className="sticky bottom-0" dimensions={dimensions} active={active} setActive={setActive} smoothScroll={smoothScroll} />
         </div>
       </div>
-      <div id={active} className={`${dimensions.width <= 785 ? 'bg-black text-white' : 'bg-white text-black'}`}>
+      <div id={active} className={`${dimensions.width <= 785 ? 'bg-black text-white' : 'bg-white text-black'} ${dimensions.height >= 1050 && 'text-xl'}`}>
         {active === 'Work' && <BlogPosts posts={posts} />}
         {active === 'About' && <About width={dimensions.width} />}
         {active === 'Reading List' && <Readings />}
@@ -87,6 +83,7 @@ export const getStaticProps = async () => {
     'coverImage',
     'date',
     'type',
+    'excerpt',
     'topic',
     'slug',
   ])
