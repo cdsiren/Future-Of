@@ -13,7 +13,7 @@ const Intro = (props: any) => {
   }
 
   return (
-    <section className={`${props.dimensions.height >= 1050 ? "md:leading-[115px] md:text-[115px] sm:text-[92px] text-[44px]" : props.dimensions.height >= 780 ? "md:leading-[80px] md:text-[80px] sm:text-[78px] text-[44px]" : "md:leading-[70px] md:text-[70px] text-[38px]"} font-light tracking-wider p-8 min-h-screen flex flex-col justify-between`}>
+    <section className={`${props.dimensions.height >= 1050 ? "md:leading-[190px] md:text-[190px] sm:text-[115] sm:leading-[115px] leading-[54px] text-[54px]" : props.dimensions.height >= 780 ? "md:leading-[80px] md:text-[80px] sm:text-[78px] leading-[54px] text-[54px]" : "md:leading-[70px] md:text-[70px] leading-[54px] text-[54px]"} font-light tracking-wider p-8 min-h-screen flex flex-col justify-between`}>
       <h1>
         Charlie<br></br> Work
       </h1>

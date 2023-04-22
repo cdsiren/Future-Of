@@ -22,8 +22,6 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
   const [active, setActive] = useState('Work');
   const [dimensions, setDimensions] = useState({ width: 800, height: 800 });
 
-  // console.log('test', postDates)
-
   useEffect(() => {
     function handleResize() {
       setDimensions({
@@ -67,12 +65,12 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
           <Navbar className="sticky bottom-0" dimensions={dimensions} active={active} setActive={setActive} smoothScroll={smoothScroll} />
         </div>
       </div>
-      <div id={active} className={`${dimensions.width <= 785 ? 'bg-black text-white' : 'bg-white text-black'} ${dimensions.height >= 1050 && 'text-xl'}`}>
+      <div id={active} className={`${dimensions.width <= 785 ? 'bg-black text-white' : 'bg-white text-black'} ${dimensions.height >= 1050 && 'text-4xl'}`}>
         {active === 'Work' && <BlogPosts posts={posts} />}
         {active === 'About' && <About width={dimensions.width} />}
         {active === 'Reading List' && <Readings />}
       </div>
-      <Footer />
+      <Footer className={`${dimensions.width <= 785 ? 'bg-black text-white' : 'bg-white text-black'} ${dimensions.height >= 1050 && 'text-3xl'} text-sm`} />
     </>
   )
 }

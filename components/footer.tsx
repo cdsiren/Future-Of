@@ -4,11 +4,11 @@ import { FiGithub } from "react-icons/fi";
 import { AiOutlineMail } from "react-icons/ai";
 import EmailCapture from './email-capture';
 
-const Footer = () => {
+const Footer = (props:any) => {
   return (
-    <footer className="border-t border-black flex justify-center py-2">
-      <div className='flex items-center gap-8 py-2'>
-        <p className='text-sm uppercase font-light'>Contact</p>
+    <footer className={`${props.className} border-t border-black flex justify-center py-4`}>
+      <div className='flex items-center gap-8 py-4'>
+        <p className='uppercase font-light'>Contact</p>
         <Link legacyBehavior href="https://twitter.com/cdurbinxyz">
           <a target='_blank'>
             <RxTwitterLogo className='hover:bg-black hover:text-white' />
@@ -19,9 +19,9 @@ const Footer = () => {
             <FiGithub className='hover:bg-black hover:text-white' />
           </a>
         </Link>
-        <div className='flex gap-2 items-center'>
+        <div className='flex gap-4 items-center'>
           <AiOutlineMail />
-          <EmailCapture className="text-xs" />
+          <EmailCapture />
         </div>
       </div>
     </footer>
