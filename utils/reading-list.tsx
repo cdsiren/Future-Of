@@ -20,7 +20,7 @@ const ReadingList = [
     date: "2020",
     author: "Hart, Shorin & Lotti",
     excerpt: `Group identity. Shared space. Vibes. These not only enable the creation of social capital, but strengthen the squad's capacity to organize, minimizing transaction costs and leading to greater productive capacities and resilience; this is "the nature of the squad." But while squads can be viewed as a "nexus of contracts", unlike the Coasean firm, they are without legal structure. Social contracts are instead effected through the unspoken bonds of mutual respect and ingroup norms.`,
-    topic: "Mechanism Design",
+    topic: "Coordination",
     slug: "https://otherinter.net/research/squad-wealth/",
   },
   {
