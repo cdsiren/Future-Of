@@ -65,12 +65,12 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
           <Navbar className="sticky bottom-0" dimensions={dimensions} active={active} setActive={setActive} smoothScroll={smoothScroll} />
         </div>
       </div>
-      <div id={active} className={`${dimensions.width <= 785 ? 'bg-black text-white' : 'bg-white text-black'} ${dimensions.height >= 1050 && 'text-4xl'}`}>
+      <div id={active} className={`${dimensions.width <= 785 ? 'bg-black text-white' : 'bg-white text-black'} 3xl:text-3xl`}>
         {active === 'Work' && <BlogPosts posts={posts} />}
-        {active === 'About' && <About width={dimensions.width} />}
+        {active === 'About' && <About />}
         {active === 'Reading List' && <Readings />}
       </div>
-      <Footer className={`${dimensions.width <= 785 ? 'bg-black text-white' : 'bg-white text-black'} ${dimensions.height >= 1050 && 'text-3xl'} text-sm`} />
+      <Footer className={`${dimensions.width <= 785 ? 'bg-black text-white' : 'bg-white text-black'} 3xl:text-3xl text-sm`} />
     </>
   )
 }

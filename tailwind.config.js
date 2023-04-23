@@ -2,6 +2,15 @@
 module.exports = {
   content: ['./components/**/*.tsx', './pages/**/*.tsx'],
   theme: {
+    screens: {
+      xs: "440px",
+      sm: "640px",
+      md: "900px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1736px",
+      "3xl": "2800px",
+    },
     extend: {
       colors: {
         'accent-1': '#FAFAFA',

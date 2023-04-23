@@ -45,9 +45,9 @@ export default function Post({ post, preview }: Props) {
 
   return <>
     <Layout preview={preview}>
-      <Header className={`${dimensions.height >= 1050 && "text-3xl"} fixed w-full bg-white p-8`} type={post.type} title={post.title} />
+      <Header className={`3xl:text-3xl 2xl:text-xl md:text-base text-sm fixed w-full bg-white p-8`} type={post.type} title={post.title} />
       <Container>        
-        <div className='mt-18 sm:mt-12'>
+        <div className='3xl:mt-28 mt-18 sm:mt-12'>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
@@ -55,19 +55,19 @@ export default function Post({ post, preview }: Props) {
             <article className={`mb-32`}>
               <Meta title={title} description={post.excerpt} url={`https://cdurbin.xyz/posts/${post.slug}`} image={post.ogImage.url} />
               <PostHeader
-                className={`${dimensions.height >= 1050 ? "max-w-6xl mt-12" : "max-w-3xl"}`}
+                className={`3xl:max-w-6xl 3xl:mt-16 mt-12 max-w-3xl`}
                 title={title}
                 coverImage={post.coverImage}
                 date={post.date}
               />
-              <PostBody className={`${dimensions.height >= 1050 ? "max-w-6xl text-3xl" : "max-w-3xl"}`} content={post.content} />
+              <PostBody className={`3xl:max-w-6xl 3xl:text-3xl 2xl:text-xl text-base max-w-3xl`} content={post.content} />
             </article>
           </>
         )}
         </div>
       </Container>
     </Layout>
-    <Footer className={`${dimensions.height >= 1050 && 'text-3xl'} text-sm`} />
+    <Footer className={`3xl:text-3xl text-sm`} />
   </>
 }
 
