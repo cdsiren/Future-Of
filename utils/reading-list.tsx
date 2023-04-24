@@ -40,11 +40,19 @@ const ReadingList = [
     slug: "https://nodeguardians.io/dev-hub/quests/rollups",
   },
   {
+    title: "Interoperability and Market Segmentation",
+    date: "2022",
+    author: "Stephen McKeon",
+    excerpt: `The immediate observation is that traders on the Avalanche market are worse off, since the price is better on the Ethereum market. But the more important insight is that market participants in both markets are worse off relative to markets with pooled liquidity.`,
+    topic: "Mechanism Design",
+    slug: "https://medium.com/collab-currency/interoperability-and-market-segmentation-9cd098382414",
+  },
+  {
     title: "Analyzing Stock Market Movements Using Twitter",
     date: "2012",
     author: "Rao & Srivastava",
     excerpt: `Where Mt^Positive and Mt^Negative represent number of positive or negative tweets on a particular day t. Logarithm of bullishness measures the share of surplus positive signals and also gives more weight to larger number of messages in a specific sentiment (positive or negative). Message volume for a time interval t is simply defined as natural logarithm of total number of tweets for a specific stock/index which is ln(Mt^Positive+Mt^Negative). The agreement among positive and negative tweet messages is defined by:`,
-    topic: "Coordination",
+    topic: "Economics",
     slug: "https://dl.acm.org/doi/pdf/10.5555/2456719.2456923",
   },
 ]
