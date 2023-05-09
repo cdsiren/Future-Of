@@ -40,6 +40,14 @@ const ReadingList = [
     slug: "https://nodeguardians.io/dev-hub/quests/rollups",
   },
   {
+    title: "Small Applications, Growing Protocols",
+    date: "2023",
+    author: "Packy McCormick",
+    excerpt: `But I think there might be another, third way. Small Apps that recognize their fleeting nature can team up with protocols that are built to last to build something bigger and more durable collectively.`,
+    topic: "Frameworks",
+    slug: "https://www.notboring.co/p/small-applications-growing-protocols",
+  },
+  {
     title: "Interoperability and Market Segmentation",
     date: "2022",
     author: "Stephen McKeon",
