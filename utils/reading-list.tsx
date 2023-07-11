@@ -16,6 +16,14 @@ const ReadingList = [
     slug: "https://www.chicagobooth.edu/review/are-markets-efficient",
   },
   {
+    title: "Zero to One",
+    date: "2014",
+    author: "Theil & Masters",
+    excerpt: "Competition can make people hallucinate opportunities where none exist.",
+    topic: "Startups",
+    slug: "https://www.amazon.com/Zero-One-Notes-Startups-Future/dp/0804139296",
+  },
+  {
     title: "Squad Wealth",
     date: "2020",
     author: "Hart, Shorin & Lotti",

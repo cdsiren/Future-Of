@@ -22,6 +22,12 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
   const [active, setActive] = useState('Work');
   const [dimensions, setDimensions] = useState({ width: 800, height: 800 });
 
+  const ENUM_CONTENT = {
+    'Work': <BlogPosts posts={posts} />,
+    'About': <About />,
+    'Reading List': <Readings />
+  }
+
   useEffect(() => {
     function handleResize() {
       setDimensions({
@@ -66,9 +72,7 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
         </div>
       </div>
       <div id={active} className={`${dimensions.width <= 785 ? 'bg-black text-white' : 'bg-white text-black'} 3xl:text-3xl`}>
-        {active === 'Work' && <BlogPosts posts={posts} />}
-        {active === 'About' && <About />}
-        {active === 'Reading List' && <Readings />}
+        {ENUM_CONTENT[active]}
       </div>
       <Footer className={`${dimensions.width <= 785 ? 'bg-black text-white' : 'bg-white text-black'} 3xl:text-3xl text-sm`} />
     </>
