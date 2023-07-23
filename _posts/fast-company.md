@@ -4,7 +4,7 @@ coverImage: '/assets/blog/fast-company/cover-img.png'
 date: '07.10.2023'
 type: 'Publication'
 excerpt: Profile featured in Fast Company's article on Gen Z's expectations from work.
-topic: 'Hiring'
+topic: 'Startups'
 ogImage:
   url: '/assets/blog/fast-company/cover-img.png'
 ---

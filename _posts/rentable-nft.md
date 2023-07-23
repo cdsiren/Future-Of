@@ -4,7 +4,7 @@ coverImage: '/assets/blog/rentable-nfts/cover.png'
 date: '02.14.2023'
 type: 'Blog'
 excerpt: Usually watermarked images are a real non-starter, but, in a discussion about property rights, it feels more than appropriate. Sure, I could have found this cartoon in its original source, right-click saved, and spread the meme.
-topic: 'NFT Theory'
+topic: 'NFTs'
 ogImage:
   url: '/assets/blog/rentable-nfts/cover.png'
 ---

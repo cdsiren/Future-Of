@@ -7,7 +7,7 @@ type Props = {
 
 const Work = ({ posts }: Props) => {
   return <div className={`p-8 w-full min-h-[83vh]`}>
-    <div className="md:grid hidden grid-cols-6 font-light pb-4">
+    <div className="md:grid hidden grid-cols-6 font-light pb-4 font-[500]">
       <p>N°</p>
       <p className='col-span-2'>Project</p>
       <p>Type</p>

@@ -4,7 +4,7 @@ coverImage: '/assets/podcast/rentable-nfts/cover.png'
 date: '02.14.2023'
 type: 'Podcast'
 excerpt: Mint Podcast episode in which I discuss why rentable NFTs are exciting.  Companion media to my Rentable NFTs blog.
-topic: 'NFT Theory'
+topic: 'NFTs'
 ogImage:
   url: '/assets/podcast/rentable-nfts/cover.png'
 ---

@@ -4,7 +4,7 @@ coverImage: '/assets/blog/check-eligibility/cover.png'
 date: '01.02.2023'
 type: 'Blog'
 excerpt: Through the bear market, NFTs as a tool for crowdfunding and speculation has faded similarly to 2017 ICO predecessors supported by the same motivations.  The answer is beginning to come into focus as creators are prioritizing low-priced to free NFTs accomplish non-financial objectives.
-topic: 'NFT Practice'
+topic: 'NFTs'
 ogImage:
   url: '/assets/blog/check-eligibility/cover.png'
 ---
