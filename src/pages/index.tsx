@@ -5,12 +5,11 @@ import Intro from '../components/intro';
 import About from '../components/about';
 import Readings from '../components/reading-list';
 import { getAllPosts } from '../lib/api';
-import Post from '../interfaces/post';
+import Post from '../../interfaces/post';
 import { getLastRelease } from '../lib/getLastRelease';
 import { getLastBlock } from '../lib/getLastBlock';
 import Navbar from '../components/Navbar';
 import Meta from '../components/meta';
-import { useScreenSize } from '../lib/contexts/useScreenSizeContext';
 import Layout from '../components/layout';
 
 type Props = {
@@ -22,8 +21,6 @@ type Props = {
 export default function Index({ allPosts, decentNft, blockNumber }: Props) {
   const posts = allPosts;
   const [active, setActive] = useState('Work');
-  const [dimensions, setDimensions] = useState({ width: 800, height: 800 });
-  const { width, height } = useScreenSize();
 
   const content = {
     'Work': <BlogPosts posts={posts} />,
@@ -53,12 +50,12 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
     <>
     <Meta />
       <Layout>
-        <div>
+        <div className='relative'>
           <div id='intro'>
             <Intro nft={decentNft} block={blockNumber} />
           </div>
           <div id='navbar' className='absolute bottom-0 w-full'>
-            <Navbar className="sticky bottom-0" dimensions={dimensions} active={active} setActive={setActive} smoothScroll={smoothScroll} />
+            <Navbar className="sticky bottom-0" active={active} setActive={setActive} smoothScroll={smoothScroll} />
           </div>
         </div>
         <div id={active} className={`3xl:text-3xl`}>
