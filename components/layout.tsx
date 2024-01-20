@@ -1,5 +1,6 @@
-import Alert from './alert'
-import Meta from './meta'
+import Meta from './meta';
+import { useScreenSize } from '../lib/contexts/useScreenSizeContext';
+import { SCREEN_SIZE_TRIGGER } from '../utils/constants';
 
 type Props = {
   preview?: boolean
@@ -7,11 +8,12 @@ type Props = {
 }
 
 const Layout = ({ preview, children }: Props) => {
+  const { type } = useScreenSize();
+
   return (
     <>
       <Meta />
-      <div className={`min-h-screen relative`}>
-        {/* <Alert preview={preview} /> */}
+      <div className={`${type === 'mobile' && ' bg-black text-white'} min-h-screen relative`}>
         <main>{children}</main>
       </div>
     </>

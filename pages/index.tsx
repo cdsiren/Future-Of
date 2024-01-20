@@ -10,6 +10,8 @@ import { getLastRelease } from '../lib/getLastRelease';
 import { getLastBlock } from '../lib/getLastBlock';
 import Navbar from '../components/Navbar';
 import Meta from '../components/meta';
+import { useScreenSize } from '../lib/contexts/useScreenSizeContext';
+import Layout from '../components/layout';
 
 type Props = {
   allPosts: Post[],
@@ -21,26 +23,13 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
   const posts = allPosts;
   const [active, setActive] = useState('Work');
   const [dimensions, setDimensions] = useState({ width: 800, height: 800 });
+  const { width, height } = useScreenSize();
 
-  const ENUM_CONTENT = {
+  const content = {
     'Work': <BlogPosts posts={posts} />,
     'About': <About />,
     'Reading List': <Readings />
   }
-
-  useEffect(() => {
-    function handleResize() {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    }
-
-    window.addEventListener('resize', handleResize);
-    handleResize(); // Set initial dimensions on mount
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   useEffect(() => {
     async function sortPosts() {
@@ -63,18 +52,20 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
   return (
     <>
     <Meta />
-      <div className={`${dimensions.width <= 785 && 'bg-black text-white'}`}>
-        <div id='intro'>
-          <Intro dimensions={dimensions} nft={decentNft} block={blockNumber} />
+      <Layout>
+        <div>
+          <div id='intro'>
+            <Intro nft={decentNft} block={blockNumber} />
+          </div>
+          <div id='navbar' className='absolute bottom-0 w-full'>
+            <Navbar className="sticky bottom-0" dimensions={dimensions} active={active} setActive={setActive} smoothScroll={smoothScroll} />
+          </div>
         </div>
-        <div id='navbar' className='absolute bottom-0 w-full'>
-          <Navbar className="sticky bottom-0" dimensions={dimensions} active={active} setActive={setActive} smoothScroll={smoothScroll} />
+        <div id={active} className={`3xl:text-3xl`}>
+          {content[active]}
         </div>
-      </div>
-      <div id={active} className={`${dimensions.width <= 785 ? 'bg-black text-white' : 'bg-white text-black'} 3xl:text-3xl`}>
-        {ENUM_CONTENT[active]}
-      </div>
-      <Footer className={`${dimensions.width <= 785 ? 'bg-black text-white' : 'bg-white text-black'} 3xl:text-3xl text-sm`} />
+        <Footer className={`3xl:text-3xl text-sm`} />
+      </Layout>
     </>
   )
 }

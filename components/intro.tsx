@@ -1,8 +1,9 @@
 import formatAddress from "../lib/formatAddress";
 import { contractType } from "../lib/contractType";
+import { useScreenSize } from "../lib/contexts/useScreenSizeContext";
 
 const Intro = (props: any) => {
-
+  const { width, height, type } = useScreenSize();
   const rn = new Date();
   const hours = rn.getHours();
   let maybeMorning: string;
@@ -19,10 +20,10 @@ const Intro = (props: any) => {
       </h1>
       <div className="flex items-center">
         <div>
-          <p>{props.dimensions.width <= 690 ? "mobile," : "desktop,"}</p>
-          <p>{props.dimensions.width} x {props.dimensions.height} px,</p>
-          <p className="break-all"><a className={props.dimensions.width <= 785 ? "hover:bg-white hover:text-black" : "hover:bg-black hover:text-white"} href={`https://hq.decent.xyz/${props.nft.chainId}/${contractType(props.nft.type)}/${props.nft.address}`} target="_blank">{props.loading ? "..." : props.nft.chainId+"."+props.nft.type+"."+formatAddress(props.nft.address)},</a></p>
-          <p><a className={props.dimensions.width <= 785 ? "hover:bg-white hover:text-black" : "hover:bg-black hover:text-white"} href={`https://etherscan.io/block/${props.block}`} target="_blank">{props.block} {maybeMorning} {`{revalidate: 12}`},</a></p>
+          <p>{type},</p>
+          <p>{width} x {height} px,</p>
+          <p className="break-all"><a className={type === 'mobile' ? "hover:bg-white hover:text-black" : "hover:bg-black hover:text-white"} href={`https://hq.decent.xyz/${props.nft.chainId}/${contractType(props.nft.type)}/${props.nft.address}`} target="_blank">{props.loading ? "..." : props.nft.chainId+"."+props.nft.type+"."+formatAddress(props.nft.address)},</a></p>
+          <p><a className={type === 'mobile' ? "hover:bg-white hover:text-black" : "hover:bg-black hover:text-white"} href={`https://etherscan.io/block/${props.block}`} target="_blank">{props.block} {maybeMorning} {`{revalidate: 12}`},</a></p>
           <p>New York, NY</p>
         </div>
       </div>

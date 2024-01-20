@@ -1,0 +1,1 @@
+export const SCREEN_SIZE_TRIGGER = 785;
