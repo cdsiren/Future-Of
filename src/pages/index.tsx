@@ -5,7 +5,7 @@ import Intro from '../components/intro';
 import About from '../components/about';
 import Readings from '../components/reading-list';
 import { getAllPosts } from '../lib/api';
-import Post from '../../interfaces/post';
+import Post from '../interfaces/post';
 import { getLastRelease } from '../lib/getLastRelease';
 import { getLastBlock } from '../lib/getLastBlock';
 import Navbar from '../components/Navbar';
