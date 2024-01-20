@@ -1,6 +1,5 @@
 import Meta from './meta';
 import { useScreenSize } from '../lib/contexts/useScreenSizeContext';
-import { SCREEN_SIZE_TRIGGER } from '../utils/constants';
 
 type Props = {
   preview?: boolean
