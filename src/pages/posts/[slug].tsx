@@ -26,23 +26,6 @@ export default function Post({ post, preview }: Props) {
     return <ErrorPage statusCode={404} />
   }
 
-  const [dimensions, setDimensions] = useState({ width: 800, height: 800 });
-
-  useEffect(() => {
-    function handleResize() {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    }
-
-    window.addEventListener('resize', handleResize);
-    handleResize(); // Set initial dimensions on mount
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-
   return <>
     <Layout preview={preview}>
       <Header className={`3xl:text-3xl 2xl:text-xl md:text-base text-sm fixed w-full bg-white p-8`} type={post.type} title={post.title} />
