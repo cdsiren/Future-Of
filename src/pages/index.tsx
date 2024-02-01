@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react';
 import Footer from '../components/footer';
-import BlogPosts from '../components/blog-posts';
+import BlogPosts from '../components/Blog Posts/blog-posts';
 import Intro from '../components/intro';
 import About from '../components/about';
 import Readings from '../components/reading-list';
-import { getAllPosts } from '../lib/api';
-import Post from '../interfaces/post';
 import { getLastRelease } from '../lib/getLastRelease';
 import { getLastBlock } from '../lib/getLastBlock';
 import Navbar from '../components/Navbar';
 import Meta from '../components/meta';
 import Layout from '../components/layout';
+import { sanityClient } from '../lib/sanity';
+import { SanityPost, CleanSanityPost } from '../utils/types';
 
 type Props = {
-  allPosts: Post[],
+  allPosts: SanityPost[],
   decentNft: any,
   blockNumber: number,
 }
@@ -21,26 +21,51 @@ type Props = {
 export default function Index({ allPosts, decentNft, blockNumber }: Props) {
   const posts = allPosts;
   const [active, setActive] = useState('Work');
+  const [cleanPosts, setCleanPosts] = useState<CleanSanityPost[]>([]);
+
+  async function cleanCategory(id: string) {
+    try {
+      let res = await sanityClient.fetch(`*[_type == "category" && _id == $categoryId]{title}`, { id });
+      console.log("HEREE: ", res)
+      return res[0].title;
+    } catch (e) {
+      console.log("Error fetching category name.");
+    }
+  };
+
+  async function getCleanPosts() {
+    console.log("TEST: ", posts)
+    const postsWithCategories = await Promise.all(posts.map(async (post) => {
+      const categoryName = await cleanCategory(post.categories[0]._ref);
+      return {
+        ...post,
+        categoryName,
+      };
+    }));
+
+    setCleanPosts(postsWithCategories);
+  }
 
   const content = {
     'Work': <BlogPosts posts={posts} />,
     'About': <About />,
     'Reading List': <Readings />
-  }
+  } as const;
 
   useEffect(() => {
     async function sortPosts() {
       if (allPosts.length) {
-        allPosts.forEach(item => {
-          const [month, day, year] = item.date.split(".");
-          item.date = new Date(`${year}-${month}-${day}`).toLocaleDateString();
-        });
-        allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        const postsWithFormattedDate = allPosts.map(item => ({
+          ...item,
+          formattedPublishedAt: new Date(item.publishedAt).toLocaleDateString(),
+        }));
+        postsWithFormattedDate.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
       }
     }
     sortPosts();
+    getCleanPosts();
   }, []);
-
+  
   function smoothScroll(container: string) {
     const element = document.getElementById(container);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -68,17 +93,10 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
 }
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts([
-    'title',
-    'coverImage',
-    'date',
-    'type',
-    'excerpt',
-    'topic',
-    'slug',
-  ])
   const decentNft = await getLastRelease();
   const blockNumber = await getLastBlock();
+
+  const allPosts = await sanityClient.fetch(`*[_type == "post"]`);
 
   return {
     props: { 

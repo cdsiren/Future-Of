@@ -1,26 +1,25 @@
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Container from '../../components/container';
-import PostBody from '../../components/post-body';
+import PostBody from '../../components/Blog Posts/post-body';
 import Header from '../../components/header';
 import PostHeader from '../../components/post-header';
 import Layout from '../../components/layout';
 import { getPostBySlug, getAllPosts } from '../../lib/api';
 import PostTitle from '../../components/post-title';
 import markdownToHtml from '../../lib/markdownToHtml';
-import type PostType from '../../interfaces/post';
+import { SanityPost } from '../../utils/types';
 import Footer from '../../components/footer';
 import Meta from "../../components/meta";
-import { useState, useEffect } from 'react';
 
 type Props = {
-  post: PostType
-  morePosts: PostType[]
+  post: SanityPost[]
   preview?: boolean
 }
 
 export default function Post({ post, preview }: Props) {
-  const router = useRouter()
+
+  const router = useRouter();
   const title = `${post.title}`
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -98,3 +97,4 @@ export async function getStaticPaths() {
     fallback: false,
   }
 }
+

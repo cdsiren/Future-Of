@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Accordion from './accordian';
+import Accordion from '../accordian';
 
 type Props = {
   index: number
   length: number
   title: string
   coverImage: string
-  date: string
+  date: Date
   type: string
-  topic: string
+  topic?: string
   slug: string
 }
 
@@ -36,7 +36,7 @@ const PostPreview = ({
         <p className='pr-6 col-span-2'>{title}</p>
         <p>{type}</p>
         <p>{topic}</p>
-        <p>{date}</p>
+        <p>{date as any}</p>
       </div>
       {index + 1 !== length && <Accordion className={`absolute mx-auto w-full z-10`} isOpen={isOpen} coverImage={coverImage} />}
     </Link>
@@ -45,7 +45,7 @@ const PostPreview = ({
         <p>N° {index + 1}. {title}</p>
         <div className='grid grid-cols-3 py-1'>
           <p>{type}</p>
-          <p className='text-center'>{date}</p>
+          <p className='text-center'>{date as any}</p>
           <p className='text-right'>{topic}</p>
         </div>
         <div className='flex justify-center'>
