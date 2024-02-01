@@ -1,6 +1,7 @@
 import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
+import { sanityClient } from './sanity';
 
 const postsDirectory = join(process.cwd(), '_posts')
 
@@ -20,7 +21,6 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
 
   const items: Items = {}
 
-  // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
     if (field === 'slug') {
       items[field] = realSlug
@@ -39,7 +39,27 @@ export function getAllPosts(fields: string[] = []) {
   const slugs = getPostSlugs()
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
-    // sort posts by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
   return posts
+}
+
+export async function getBlogBySlug(slug: string) {
+  const query = `*[ _type == "post" && slug.current == $slug ][0]{
+    title,
+    body,
+    author->{name, image},
+    categories[]->{title},
+    mainImage,
+    publishedAt,
+    slug,
+    topic,
+    _createdAt,
+    _id,
+    _rev,
+    _type,
+    _updatedAt
+  }`;
+
+  const post = await sanityClient.fetch(query, { slug });
+  return post;
 }

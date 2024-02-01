@@ -1,6 +1,6 @@
 import PostTitle from './post-title';
 import Image from 'next/image';
-import EmailCapture from './email-capture';
+import EmailCapture from '../email-capture';
 
 type Props = {
   title: string

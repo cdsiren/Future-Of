@@ -34,6 +34,7 @@ export interface SanityPost {
     _type: string
   },
   title: string,
+  topic: string,
   _createdAt: string,
   _id: string,
   _rev: string,
@@ -43,4 +44,6 @@ export interface SanityPost {
 
 export interface CleanSanityPost extends SanityPost {
   categoryName?: string;
+  date?: string;
+  image?: string;
 }

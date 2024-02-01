@@ -1,6 +1,4 @@
 import PostPreview from './post-preview';
-import { SanityPost } from '../../utils/types';
-import { getImageUrl } from '../../lib/getImageUrl';
 import { CleanSanityPost } from '../../utils/types';
 
 type Props = {
@@ -23,10 +21,10 @@ const Work = ({ posts }: Props) => {
           length={posts.length}
           key={post.slug.current}
           title={post.title}
-          coverImage={getImageUrl(post.mainImage.asset._ref)}
-          date={post.publishedAt}
+          coverImage={post.image}
+          date={post.date}
           type={post.categoryName}
-          // topic={post.topic}
+          topic={post.topic}
           slug={post.slug.current}
         />
       ))}

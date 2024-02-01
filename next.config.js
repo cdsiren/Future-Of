@@ -7,9 +7,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "**",
       },
-    ],
-    domains: [
-      "cdn.sanity.io",
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+      },
     ],
   },
 };

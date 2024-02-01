@@ -8,7 +8,7 @@ type Props = {
   length: number
   title: string
   coverImage: string
-  date: Date
+  date: string
   type: string
   topic?: string
   slug: string

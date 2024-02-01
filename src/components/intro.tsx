@@ -1,4 +1,4 @@
-import formatAddress from "../lib/formatAddress";
+import formatAddress from "../lib/formats/formatAddress";
 import { contractType } from "../lib/contractType";
 import { useScreenSize } from "../lib/contexts/useScreenSizeContext";
 

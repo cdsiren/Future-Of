@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Footer from '../components/footer';
-import BlogPosts from '../components/Blog Posts/blog-posts';
+import BlogPosts from '../components/blog-posts/blog-posts';
 import Intro from '../components/intro';
 import About from '../components/about';
 import Readings from '../components/reading-list';
@@ -9,8 +9,9 @@ import { getLastBlock } from '../lib/getLastBlock';
 import Navbar from '../components/Navbar';
 import Meta from '../components/meta';
 import Layout from '../components/layout';
-import { sanityClient } from '../lib/sanity';
+import { sanityClient } from '../lib/sanity/sanity';
 import { SanityPost, CleanSanityPost } from '../utils/types';
+import { getCleanSanity } from '../lib/sanity/sanityPosts';
 
 type Props = {
   allPosts: SanityPost[],
@@ -23,48 +24,21 @@ export default function Index({ allPosts, decentNft, blockNumber }: Props) {
   const [active, setActive] = useState('Work');
   const [cleanPosts, setCleanPosts] = useState<CleanSanityPost[]>([]);
 
-  async function cleanCategory(id: string) {
-    try {
-      let res = await sanityClient.fetch(`*[_type == "category" && _id == $categoryId]{title}`, { id });
-      console.log("HEREE: ", res)
-      return res[0].title;
-    } catch (e) {
-      console.log("Error fetching category name.");
-    }
-  };
-
-  async function getCleanPosts() {
-    console.log("TEST: ", posts)
-    const postsWithCategories = await Promise.all(posts.map(async (post) => {
-      const categoryName = await cleanCategory(post.categories[0]._ref);
-      return {
-        ...post,
-        categoryName,
-      };
-    }));
-
-    setCleanPosts(postsWithCategories);
-  }
-
   const content = {
-    'Work': <BlogPosts posts={posts} />,
+    'Work': <BlogPosts posts={cleanPosts} />,
     'About': <About />,
     'Reading List': <Readings />
   } as const;
 
   useEffect(() => {
+    getCleanSanity({ posts, setCleanPosts });
     async function sortPosts() {
-      if (allPosts.length) {
-        const postsWithFormattedDate = allPosts.map(item => ({
-          ...item,
-          formattedPublishedAt: new Date(item.publishedAt).toLocaleDateString(),
-        }));
-        postsWithFormattedDate.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+      if (posts.length) {
+        posts.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
       }
     }
     sortPosts();
-    getCleanPosts();
-  }, []);
+  }, [posts]);
   
   function smoothScroll(container: string) {
     const element = document.getElementById(container);
