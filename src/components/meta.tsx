@@ -33,6 +33,18 @@ const Metadata = (props:any) => {
         <meta name='twitter:title' content={props.title || fallbackTitle} />
         <meta name='twitter:description' content={props.description || fallbackDescription} />
         <meta name='twitter:image' content={props.image || fallbackImage} />
+
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QT1SMT3CE"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-8QT1SMT3CE');
+          `}
+        </script>
       </Head>
     </>
   )
