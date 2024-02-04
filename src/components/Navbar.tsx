@@ -7,10 +7,10 @@ const Navbar = (props: any) => {
 
   return (
     <nav className={`3xl:text-3xl grid sm:grid-cols-6 grid-cols-4 items-center p-8 font-light`}>
-      <button onClick={() => props.smoothScroll('intro')} className='font-thin flex items-center'>[ C , 
-        <p className='px-1'>
-          <Image src={type === 'mobile' ? "/logo-white.png" : "/favicon/favi.png"} height={18} width={18} alt="logo" />
-        </p> ]
+      <button onClick={() => props.smoothScroll('intro')} className='font-thin flex items-center'>
+        <p className='px-1 pt-2'>
+          <Image src={type === 'mobile' ? "/rorb.png" : "/borb.png"} height={24} width={24} alt="logo" />
+        </p>
       </button>
       <button onClick={() => {props.setActive('Work'); props.smoothScroll(props.active)}} className={`${type === 'mobile' ? "hover:bg-white hover:text-black" : "hover:bg-black hover:text-white"} flex items-center gap-2 w-fit sm:col-span-2`}>
         Work

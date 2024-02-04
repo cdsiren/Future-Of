@@ -1,16 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@100;200;300;400;500&display=swap');
 
-html,
-body {
-  font-family: 'Inter Tight', sans-serif;
-  font-weight: 100; /* thin */
-  font-weight: 200; /* extralight */
-  font-weight: 300; /* light */
-  font-weight: 400; /* regular */
-  font-weight: 500; /* medium */
+.body {
+  @apply font-normal text-lg;
+  min-height: 100vh;
 }
 
 ::-moz-selection { background-color: #000000; 

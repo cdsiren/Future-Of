@@ -1,5 +1,5 @@
 /**
- * This configuration is used to for the Sanity Studio that’s mounted on the `/pages/cms-studio/[[...index]].tsx` route
+ * This configuration is used to for the Sanity Studio that’s mounted on the `/pages/editor/[[...index]].tsx` route
  */
 
 import {visionTool} from '@sanity/vision'
@@ -11,7 +11,7 @@ import {apiVersion, dataset, projectId} from './sanity/env'
 import {schema} from './sanity/schema'
 
 export default defineConfig({
-  basePath: '/cms-studio',
+  basePath: '/editor',
   projectId,
   dataset,
   // Add and edit the content schema in the './sanity/schema' folder

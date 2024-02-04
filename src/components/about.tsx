@@ -6,11 +6,11 @@ const About = () => {
   return <>
     <div className={`font-light p-8 w-full min-h-[83vh]`}>
       <div className="flex gap-8 items-center mb-12">
-        <Image src="/pfp.png" height={60} width={60} alt="pfp" />
+        <Image src="/jbpfp.png" height={60} width={60} alt="pfp" />
         <div className="text-[30px] pb-4">
-          Charlie Durbin
+          Jackie Berardo
           <div className="flex gap-4 text-lg">
-            <a target="_blank" href="https://twitter.com/cdurbinxyz" className="hover:text-white hover:bg-black"><AiOutlineTwitter /></a>
+            <a target="_blank" href="https://twitter.com/jackieberardo" className="hover:text-white hover:bg-black"><AiOutlineTwitter /></a>
             <a target="_blank" href="https://github.com/cdsiren" className="hover:text-white hover:bg-black"><AiFillGithub /></a>
             <a target="_blank" href="https://www.linkedin.com/in/charlie-durbin-b88544131/" className="hover:text-white hover:bg-black"><AiFillLinkedin /></a>
           </div>

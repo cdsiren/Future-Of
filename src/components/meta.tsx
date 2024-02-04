@@ -2,10 +2,10 @@ import Head from "next/head";
 
 const Metadata = (props:any) => {
 
-  const fallbackTitle = "Charlie Work";
-  const fallbackDescription = "Charlie's personal site.";
-  const fallbackUrl = "cdurbin.xyz";
-  const fallbackImage = "/images/pfp.png";
+  const fallbackTitle = "Future Of";
+  const fallbackDescription = "Get rewarded for testing technology.";
+  const fallbackUrl = "https://jackiesnewsletter.beehiiv.com/subscribe";
+  const fallbackImage = "/images/forb.png";
 
   return (
     <>
@@ -19,7 +19,7 @@ const Metadata = (props:any) => {
           name="viewport"
           content="initial-scale=0.6, width=500"
         />
-        <link rel="icon" href="/pfp.png" />
+        <link rel="icon" href="/forb.png" />
         {/* facebook open graph tags */}
         <meta property='og:type' content="website" />
         <meta property='og:url' content={props.url || fallbackUrl} />
@@ -34,6 +34,7 @@ const Metadata = (props:any) => {
         <meta name='twitter:description' content={props.description || fallbackDescription} />
         <meta name='twitter:image' content={props.image || fallbackImage} />
 
+        {/* TODO: setup after domain */}
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QT1SMT3CE"></script>
         <script>

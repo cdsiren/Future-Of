@@ -1,9 +1,8 @@
 import Link from 'next/link';
-import Image from 'next/image';
 
 const Header = (props: any) => {
   return <div className={`${props.className} flex flex-wrap items-center`}>
-    <Link href="/" className='font-thin flex items-center'>[ C , <p className='px-1'><Image src="/favicon/favi.png" height={18} width={18} alt="logo" /></p> ]</Link>
+    <Link href="/" className='font-thin flex items-center'>[ J , B ]</Link>
     <h2 className="font-light px-0 sm:px-4">
       <Link href="/" className="hover:text-white hover:bg-black">{'>> '}Home</Link> / Posts / <span className='bg-black text-white'>{props.title}</span>.
     </h2>
