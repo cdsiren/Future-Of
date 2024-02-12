@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { RxTwitterLogo } from "react-icons/rx";
-import { FiGithub } from "react-icons/fi";
 import { AiOutlineMail } from "react-icons/ai";
 import EmailCapture from './email-capture';
 

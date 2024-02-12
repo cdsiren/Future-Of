@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../components/navbar';
+import Layout from '../components/layout';
 
 export default function Index() {
   const [currentDateTime, setCurrentDateTime] = useState('');
@@ -23,14 +24,13 @@ export default function Index() {
 
   return (
     <>
+    <Layout>
     <div className='relative'>
       <div id='navbar' className='absolute top-0 w-full'>
         <Navbar className="sticky top-0" date={currentDateTime} home />
       </div>
     </div>
-    {/* <div id={active} className={`3xl:text-3xl`}>
-      {cleanPosts ? content[active] : '...'}
-    </div> */}
+    </Layout>
     </>
   )
 }

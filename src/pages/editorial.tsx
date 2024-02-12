@@ -5,6 +5,7 @@ import { sanityClient } from '../lib/sanity/sanity';
 import { SanityPost, CleanSanityPost } from '../utils/types';
 import { getCleanSanity } from '../lib/sanity/sanityPosts';
 import { GetServerSideProps } from 'next';
+import Layout from '../components/layout';
 
 type Props = {
   allPosts: SanityPost[],
@@ -33,7 +34,7 @@ export default function Editorial({ allPosts, slug }: Props) {
 
     return () => clearInterval(intervalId);
   }, []);
-  
+
   useEffect(() => {
     getCleanSanity({ posts, setCleanPosts });
     async function sortPosts() {
@@ -46,8 +47,10 @@ export default function Editorial({ allPosts, slug }: Props) {
 
   return (
     <>
+    <Layout>
       <Navbar className="sticky top-0" date={currentDateTime} page={slug}/>
       <BlogPosts posts={cleanPosts} />
+    </Layout>
     </>
   )
 }

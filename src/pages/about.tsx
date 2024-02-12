@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
-import BlogPosts from '../components/blog-posts/blog-posts';
 import Navbar from '../components/navbar';
 import { sanityClient } from '../lib/sanity/sanity';
-import { SanityPost, CleanSanityPost } from '../utils/types';
-import { getCleanSanity } from '../lib/sanity/sanityPosts';
 import { GetServerSideProps } from 'next';
 import About from '../components/about';
+import Layout from '../components/layout';
 
 type Props = {
   authors: any,
@@ -36,8 +34,10 @@ export default function AboutPage({ authors, slug }: Props) {
 
   return (
     <>
+    <Layout>
       <Navbar className="sticky top-0" date={currentDateTime} page={slug}/>
       <About author={author} />
+    </Layout>
     </>
   )
 }

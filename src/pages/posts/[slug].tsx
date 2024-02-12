@@ -1,5 +1,4 @@
 import Container from '../../components/container';
-import Header from '../../components/header';
 import PostHeader from '../../components/blog-posts/post-header';
 import { getBlogBySlug } from '../../lib/sanity/getPosts';
 import PostTitle from '../../components/blog-posts/post-title';
@@ -11,6 +10,7 @@ import { GetServerSideProps } from 'next';
 import { getImageUrl } from '../../lib/sanity/getImageUrl';
 import { formatIsoDate } from '../../lib/formats/formatDate';
 import Navbar from '../../components/navbar';
+import Layout from '../../components/layout';
 
 type Props = {
   post: SanityPost;
@@ -21,7 +21,7 @@ export default function Post({ post, slug }: Props) {
   const title = `${post.title}`
 
   return <>
-    {/* <Header className={`3xl:text-3xl 2xl:text-xl md:text-base text-sm fixed w-full bg-white px-8 py-4 border-b border-black`} title={post.title} /> */}
+    <Layout>
     <Navbar className="sticky top-0 bg-white" date={''} midPage='editorial' page={`${slug}`}/>
     <Container>        
       <div className='3xl:mt-28 mt-18 sm:mt-12'>
@@ -45,6 +45,7 @@ export default function Post({ post, slug }: Props) {
       )}
       </div>
     </Container>
+    </Layout>
   </>
 }
 

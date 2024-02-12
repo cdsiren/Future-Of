@@ -3,9 +3,7 @@ import '../styles/index.css';
 import { Analytics } from "@vercel/analytics/react";
 import { ScreenSizeProvider } from '../lib/contexts/useScreenSizeContext';
 import Meta from '../components/meta';
-import Layout from '../components/layout';
 import Footer from '../components/footer';
-import Navbar from '../components/navbar';
 import { useState, useEffect } from 'react';
 
 import localFont from "next/font/local";
@@ -57,14 +55,12 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return <>
   <Meta />
-  <Layout>
-    <ScreenSizeProvider>
-      <div className={`${favorit.variable} font-mono ${monument.variable} font-sans`}>
-        <Component {...pageProps} />
-        <Footer className={`3xl:text-3xl text-sm`} />
-      </div>
-      <Analytics />
-    </ScreenSizeProvider>
-  </Layout>
+  <ScreenSizeProvider>
+    <div className={`${favorit.variable} font-mono ${monument.variable} font-sans`}>
+      <Component {...pageProps} />
+      <Footer className={`3xl:text-3xl text-sm`} />
+    </div>
+    <Analytics />
+  </ScreenSizeProvider>
   </>
 }

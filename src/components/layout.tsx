@@ -1,4 +1,3 @@
-import Meta from './meta';
 import { useScreenSize } from '../lib/contexts/useScreenSizeContext';
 
 type Props = {
@@ -10,7 +9,6 @@ const Layout = ({ children }: Props) => {
 
   return (
     <>
-      <Meta />
       <div className={`${type === 'mobile' && ' bg-black text-white'} min-h-screen relative`}>
         <main>{children}</main>
       </div>

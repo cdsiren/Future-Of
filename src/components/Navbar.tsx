@@ -1,7 +1,4 @@
 import { useScreenSize } from "../lib/contexts/useScreenSizeContext";
-import { RxTwitterLogo } from "react-icons/rx";
-import { AiOutlineMail } from "react-icons/ai";
-import EmailCapture from "./email-capture";
 import Link from "next/link";
 import Image from "next/image";
 
