@@ -24,7 +24,7 @@ const ReadingPreview = ({
     <a className='relative' href={slug} target='_blank'>
       <div
         id="project"
-        className="grid-cols-6 items-center font-light 3xl:py-6 2xl:py-4 py-3 z-20 hover:text-orange-400 cursor-pointer md:grid hidden"
+        className="grid-cols-6 items-center font-light 3xl:py-6 2xl:py-4 py-3 z-20 hover:text-[#BE78FC] cursor-pointer md:grid hidden"
       >
         <p>{index + 1}</p>
         <p className='pr-6 col-span-2'>{title}</p>

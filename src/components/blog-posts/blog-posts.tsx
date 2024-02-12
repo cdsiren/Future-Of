@@ -6,15 +6,17 @@ type Props = {
 }
 const Work = ({ posts }: Props) => {
 
-  return <div className={`p-8 w-full min-h-[83vh]`}>
-    <div className="md:grid hidden grid-cols-6 font-light pb-4 font-[500]">
-      <p>N°</p>
-      <p className='col-span-2'>Project</p>
-      <p>Type</p>
-      <p>Topic</p>
-      <p>Date</p>
+  return <div className={`w-full min-h-[83vh]`}>
+    <div className="py-2 border-b border-black">
+      <div className='md:grid hidden grid-cols-6 text-xl px-8'>
+        <p>N°</p>
+        <p className='col-span-2'>Project</p>
+        <p>Type</p>
+        <p>Topic</p>
+        <p>Date</p>
+      </div>
     </div>
-    <div>
+    <div className='px-8 py-4'>
       {posts.map((post, i) => (
         <PostPreview
           index={i}

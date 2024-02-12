@@ -1,5 +1,6 @@
-import urlBuilder from '@sanity/image-url'
-import {getImageDimensions} from '@sanity/asset-utils'
+import React from 'react';
+import urlBuilder from '@sanity/image-url';
+import {getImageDimensions} from '@sanity/asset-utils';
 
 // Barebones lazy-loaded image component
 const SampleImageComponent = ({value, isInline}) => {
@@ -40,7 +41,7 @@ const components = {
       const href = value?.href;
       const target = href?.startsWith('http') ? '_blank' : undefined;
       return (
-        <a className='text-orange-400' href={href} target={target} rel={target === '_blank' ? 'noopener noreferrer' : undefined}>
+        <a className='text-[#BE78FC]' href={href} target={target} rel={target === '_blank' ? 'noopener noreferrer' : undefined}>
           {children}
         </a>
       );
@@ -54,6 +55,12 @@ const components = {
     // Ex. 2: rendering custom styles
     customHeading: ({children}) => (
       <h2 className="text-lg text-primary text-purple-700">{children}</h2>
+    ),
+    normal: ({children}) => (
+      <React.Fragment>
+        <div>{children}</div>
+        <br />
+      </React.Fragment>
     ),
   },
   list: {

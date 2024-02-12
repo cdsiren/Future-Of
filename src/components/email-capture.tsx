@@ -30,7 +30,7 @@ const EmailCapture = (props:any) => {
   }
 
   return <div className={props.className}>
-    <input className='rounded-full py-1 px-2 text-orange-500 font-light' type="text" id="email" value={email} onChange={handleEmailChange} placeholder='Enter your email...' onKeyDown={e => handleKeyDown(e)} />
+    <input className='rounded-full py-1 px-2 text-[#BE78FC] font-light' type="text" id="email" value={email} onChange={handleEmailChange} placeholder='Enter your email...' onKeyDown={e => handleKeyDown(e)} />
     {props.showSubmit && <button className='bg-black text-white py-1 px-5 cursor-pointer hover:opacity-80' onClick={handleSubmit}>Submit</button>}
     </div>
 }

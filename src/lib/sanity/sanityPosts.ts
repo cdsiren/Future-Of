@@ -17,7 +17,6 @@ export async function getCleanSanity({
     const date = formatIsoDate(String(post.publishedAt));
     const image = getImageUrl(post.mainImage.asset._ref);
 
-    console.log("TEST 1: ", post.title, image)
     return {
       ...post,
       categoryName,

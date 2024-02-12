@@ -1,7 +1,20 @@
 import { useEffect, useState } from 'react';
+import BlogPosts from '../components/blog-posts/blog-posts';
 import Navbar from '../components/navbar';
+import { sanityClient } from '../lib/sanity/sanity';
+import { SanityPost, CleanSanityPost } from '../utils/types';
+import { getCleanSanity } from '../lib/sanity/sanityPosts';
+import { GetServerSideProps } from 'next';
+import About from '../components/about';
 
-export default function Index() {
+type Props = {
+  authors: any,
+  slug: string,
+}
+
+export default function AboutPage({ authors, slug }: Props) {
+  const author = authors[0];
+  
   const [currentDateTime, setCurrentDateTime] = useState('');
   useEffect(() => {
     const updateDateTime = () => {
@@ -23,14 +36,19 @@ export default function Index() {
 
   return (
     <>
-    <div className='relative'>
-      <div id='navbar' className='absolute top-0 w-full'>
-        <Navbar className="sticky top-0" date={currentDateTime} home />
-      </div>
-    </div>
-    {/* <div id={active} className={`3xl:text-3xl`}>
-      {cleanPosts ? content[active] : '...'}
-    </div> */}
+      <Navbar className="sticky top-0" date={currentDateTime} page={slug}/>
+      <About author={author} />
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const authors = await sanityClient.fetch(`*[_type == "author"]`);
+
+  return {
+    props: {
+      slug: context.resolvedUrl.slice(1),
+      authors
+    }
+  }
 }

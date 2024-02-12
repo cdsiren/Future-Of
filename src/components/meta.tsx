@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Script from "next/script";
 
 const Metadata = (props:any) => {
 
@@ -36,8 +37,8 @@ const Metadata = (props:any) => {
 
         {/* TODO: setup after domain */}
         {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QT1SMT3CE"></script>
-        <script>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-8QT1SMT3CE"></Script>
+        <Script strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -45,7 +46,7 @@ const Metadata = (props:any) => {
 
             gtag('config', 'G-8QT1SMT3CE');
           `}
-        </script>
+        </Script>
       </Head>
     </>
   )

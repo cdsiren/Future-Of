@@ -20,6 +20,21 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'LinkedIn',
+      title: 'LinkedIn',
+      type: 'string',
+    }),
+    defineField({
+      name: 'Twitter',
+      title: 'Twitter',
+      type: 'string',
+    }),
+    defineField({
+      name: 'Instagram',
+      title: 'Instagram',
+      type: 'string',
+    }),
+    defineField({
       name: 'image',
       title: 'Image',
       type: 'image',

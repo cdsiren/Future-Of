@@ -2,29 +2,13 @@ import { AppProps } from 'next/app';
 import '../styles/index.css';
 import { Analytics } from "@vercel/analytics/react";
 import { ScreenSizeProvider } from '../lib/contexts/useScreenSizeContext';
+import Meta from '../components/meta';
+import Layout from '../components/layout';
+import Footer from '../components/footer';
+import Navbar from '../components/navbar';
+import { useState, useEffect } from 'react';
 
 import localFont from "next/font/local";
-// export const favoritBoldItalic = localFont({
-//   src: "../../public/font/ABCFavoritMono-BoldItalic-Trial.woff2",
-//   variable: "--font-favorit-bold-italic",
-// });
-// export const favoritBook = localFont({
-//   src: "/font/ABCFavoritMono-Book-Trial.woff2",
-//   variable: "--font-monument",
-// });
-// export const favoritBookItalic = localFont({
-//   src: "/font/ABCFavoritMono-BookItalic-Trial.woff2",
-//   variable: "--font-monument",
-// });
-// export const favoritLightItalic = localFont({
-//   src: "/font/ABCFavoritMono-LightItalic-Trial.woff2",
-//   variable: "--font-monument",
-// });
-// export const favoritMediumItalic = localFont({
-//   src: "/font/ABCFavoritMono-MediumItalic-Trial.woff2",
-//   variable: "--font-monument",
-// });
-
 const favorit = localFont({
   src: [
     {
@@ -50,18 +34,37 @@ export const monument = localFont({
   src: "../../fonts/EduMonumentGroteskVariable.woff2",
   variable: "--font-monument",
 });
-// export const favoritRegularItalic = localFont({
-//   src: "/font/ABCFavoritMono-RegularItalic-Trial.woff2",
-//   variable: "--font-monument",
-// });
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  const [currentDateTime, setCurrentDateTime] = useState('');
+  useEffect(() => {
+    const updateDateTime = () => {
+      const now = new Date();
+      const month = (now.getMonth() + 1).toString().padStart(2, '0');
+      const day = now.getDate().toString().padStart(2, '0');
+      const year = now.getFullYear().toString().substr(-2);
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+      setCurrentDateTime(`${month}.${day}.${year} ${hours}.${minutes}.${seconds}`);
+    };
+
+    updateDateTime();
+    const intervalId = setInterval(updateDateTime, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return <>
+  <Meta />
+  <Layout>
     <ScreenSizeProvider>
       <div className={`${favorit.variable} font-mono ${monument.variable} font-sans`}>
         <Component {...pageProps} />
+        <Footer className={`3xl:text-3xl text-sm`} />
       </div>
       <Analytics />
     </ScreenSizeProvider>
+  </Layout>
   </>
 }

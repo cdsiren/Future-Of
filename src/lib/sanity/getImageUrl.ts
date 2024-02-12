@@ -5,6 +5,8 @@ export const getImageUrl = (path: string) => {
   const newSuffixPng = ".png";
   const oldSuffixJpg = "-jpg";
   const newSuffixJpg = ".jpg";
+  const oldSuffixWebp = "-webp";
+  const newSuffixWebp = ".webp";
 
   if (path.includes("image-")) {
     const parts = path.split("image-");
@@ -13,6 +15,8 @@ export const getImageUrl = (path: string) => {
       return `${BASE_URL}/${parts[1].replace(new RegExp(oldSuffixJpg + '$'), newSuffixJpg)}`;
     } else if ((path.endsWith(oldSuffixPng))) {
       return `${BASE_URL}/${parts[1].replace(new RegExp(oldSuffixPng + '$'), newSuffixPng)}`;  
+    } else if ((path.endsWith(oldSuffixWebp))) {
+      return `${BASE_URL}/${parts[1].replace(new RegExp(oldSuffixWebp + '$'), newSuffixWebp)}`;  
     } else {
       return path;
     };

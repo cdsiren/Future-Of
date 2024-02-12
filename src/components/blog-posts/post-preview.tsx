@@ -28,7 +28,7 @@ const PostPreview = ({
 
   return <>
     <Link as={`/posts/${slug}`} href="/posts/[slug]" className="relative">
-      <div id="project" className="grid-cols-6 items-center font-light 3xl:py-6 2xl:py-4 py-3 z-20 hover:text-orange-400 cursor-pointer md:grid hidden"
+      <div id="project" className="grid-cols-6 items-center font-light 3xl:py-6 2xl:py-4 py-3 z-20 hover:opacity-80 cursor-pointer md:grid hidden"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
       >
