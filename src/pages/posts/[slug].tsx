@@ -9,7 +9,7 @@ import Meta from "../../components/meta";
 import { GetServerSideProps } from 'next';
 import { getImageUrl } from '../../lib/sanity/getImageUrl';
 import { formatIsoDate } from '../../lib/formats/formatDate';
-import Navbar from '../../components/navbar';
+import Navbar from '../../components/Navbar';
 import Layout from '../../components/layout';
 
 type Props = {
