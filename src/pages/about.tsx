@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/navbar';
 import { sanityClient } from '../lib/sanity/sanity';
 import { GetServerSideProps } from 'next';
 import About from '../components/about';
