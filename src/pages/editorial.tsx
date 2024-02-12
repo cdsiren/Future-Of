@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import BlogPosts from '../components/blog-posts/blog-posts';
-import Navbar from '../components/navbar';
+import Navbar from '../components/nav';
 import { sanityClient } from '../lib/sanity/sanity';
 import { SanityPost, CleanSanityPost } from '../utils/types';
 import { getCleanSanity } from '../lib/sanity/sanityPosts';
