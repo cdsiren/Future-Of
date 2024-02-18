@@ -10,10 +10,7 @@ const CtaBox = () => {
       <p className="text-3xl py-1 text-center">Get Rewarded.</p>
       
       <div className="pt-8 space-y-2">
-        <EmailCapture className={`${type === 'mobile' ? 'bg-white text-black' : 'bg-black text-white'} rounded-full text-sm p-1`} />
-        <div className="flex justify-center">
-          <p className={`${type === 'mobile' && 'text-white'} text-xs font-bold p-1 text-center w-fit`}>Join the waitlist.</p>
-        </div>
+        <EmailCapture prompt className={`${type === 'mobile' ? 'bg-white text-black' : 'bg-black text-white'} rounded-full text-sm p-1`} />
       </div>
     </div>
   </>

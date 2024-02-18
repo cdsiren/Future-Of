@@ -53,7 +53,7 @@ const EmailCapture = (props: any) => {
   return <>
     <div className={props.className}>
       <input 
-        className={`${type === 'mobile' ? 'custom-highlight2' : 'custom-highlight1'} rounded-full py-1 px-2 font-light bg-transparent`}
+        className={`${type === 'mobile' ? 'custom-highlight2' : 'custom-highlight1'} rounded-full w-full py-1 px-2 font-light bg-transparent`}
         type="text"
         id="email"
         value={email}
@@ -64,6 +64,10 @@ const EmailCapture = (props: any) => {
       />
       {props.showSubmit && <button className='bg-black text-white py-1 px-5 cursor-pointer hover:opacity-80' onClick={handleSubmit}>Submit</button>}
     </div>
+    {props.prompt && 
+    <div className="flex justify-center">
+      <button onClick={() => handleSubmit()} className={`${type === 'mobile' && 'text-white'} text-xs font-bold p-1 text-center w-fit`}>Join the waitlist.</button>
+    </div>}
     {success || error ? <>
       <div id="emailHelp" className="text-green-500 text-xs text-center">{success && 'Successfully recorded'}</div>
       <div id="emailHelp" className="text-red-500 text-xs text-center">{error && 'Error submitting email.'}</div>
