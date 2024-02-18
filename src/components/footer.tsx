@@ -6,7 +6,7 @@ const Footer = (props:any) => {
   const { type } = useScreenSize();
 
   return (
-    <footer className={`${props.className} border-t ${type === 'mobile' ? 'border-white' : 'border-black'} p-8 w-full`}>
+    <footer className={`${props.className} border-t ${type === 'mobile' ? 'border-white bg-black text-white' : 'border-black bg-white text-black'} p-8 w-full`}>
       <div className='flex items-center justify-between font-thin'>
         <div>
           <p className="text-xl">Testing the future of ___________.</p>
