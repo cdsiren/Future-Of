@@ -4,6 +4,7 @@ import { sanityClient } from '../lib/sanity/sanity';
 import { GetServerSideProps } from 'next';
 import About from '../components/about';
 import Layout from '../components/layout';
+import CtaBox from '../components/email/cta-box';
 
 type Props = {
   authors: any,
@@ -36,7 +37,14 @@ export default function AboutPage({ authors, slug }: Props) {
     <>
     <Layout>
       <Navbar className="sticky top-0" date={currentDateTime} page={slug}/>
-      <About author={author} />
+      <div className='flex flex-wrap gap-4 justify-center items-center w-full'>
+        <div className='h-[500px]'>
+          <About author={author} />
+        </div>
+        <div>
+          <CtaBox />
+        </div>
+      </div>
     </Layout>
     </>
   )

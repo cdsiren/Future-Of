@@ -36,22 +36,22 @@ const Navbar = ({
         </div>
         {home ? 
           <div className="flex gap-16 pr-8 uppercase">
-            <Link href='/editorial' className="hover:bg-black hover:text-white">Editorial</Link>
+            <Link href='/editorial' className={`${type === 'mobile' ? 'hover:bg-white hover:text-black' : 'hover:bg-black hover:text-white'}`}>Editorial</Link>
             {/* <Link href='/community' className="hover:bg-black hover:text-white">Community</Link> */}
-            <Link href='/about' className="hover:bg-black hover:text-white">About</Link>
+            <Link href='/about' className={`${type === 'mobile' ? 'hover:bg-white hover:text-black' : 'hover:bg-black hover:text-white'}`}>About</Link>
           </div>
           : <div className="flex gap-4 pr-8 uppercase">
-            <Link href='/' className="hover:bg-black hover:text-white">Home</Link>
+            <Link href='/' className={`${type === 'mobile' ? 'hover:bg-white hover:text-black' : 'hover:bg-black hover:text-white'}`}>Home</Link>
             <p>/</p>
             {midPage && <>
-              <Link href={`/${midPage}`} className="hover:bg-black hover:text-white">{midPage}</Link>
+              <Link href={`/${midPage}`} className={`${type === 'mobile' ? 'hover:bg-white hover:text-black' : 'hover:bg-black hover:text-white'}`}>{midPage}</Link>
               <p>/</p>
             </>}
             <p className="text-[#BE78FC]">{page}</p>
           </div>
         }
       </div>
-      {home && <div className="py-2 flex border-y border-black justify-center text-7xl uppercase font-bold">
+      {home && <div className={`${type === 'mobile' ? 'border-white my-1' : 'border-black'} py-2 flex border-y justify-center text-7xl uppercase font-bold`}>
         Future Of
       </div>}
     </nav>

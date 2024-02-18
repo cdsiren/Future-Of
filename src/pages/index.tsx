@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../components/nav';
 import Layout from '../components/layout';
-import { GetServerSideProps } from 'next';
-import { sanityClient } from '../lib/sanity/sanity';
 import { SanityPost } from '../utils/types';
-import PostCard from '../components/post-card';
+import Image from 'next/image';
+import CtaBox from '../components/email/cta-box';
 
 type Props = {
   recentPosts: SanityPost[];
@@ -34,20 +33,40 @@ export default function Index({ recentPosts }: Props) {
     <Layout>
       <Navbar className="sticky top-0" date={currentDateTime} home />
 
+      <div className='flex flex-col justify-center h-[65vh] space-y-16'>
+        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+          <CtaBox />
+        </div>
+        <div className='grid grid-cols-4 w-full place-items-center'>
+          <div>
+            <Image src='/rorb.png' height={175} width={175} alt='orb' />
+          </div>
+          <div>
+            <Image src='/borb.png' height={175} width={175} alt='orb' />
+          </div>
+          <div>
+            <Image src='/sorb.png' height={175} width={175} alt='orb' />
+          </div>
+          <div>
+            <Image src='/borb.png' height={175} width={175} alt='orb' />
+          </div>
+        </div>
+        <div className='grid grid-cols-4 w-full place-items-center'>
+          <div>
+            <Image src='/borb.png' height={175} width={175} alt='orb' />
+          </div>
+          <div>
+            <Image src='/sorb.png' height={175} width={175} alt='orb' />
+          </div>
+          <div>
+            <Image src='/borb.png' height={175} width={175} alt='orb' />
+          </div>
+          <div>
+            <Image src='/rorb.png' height={175} width={175} alt='orb' />
+          </div>
+        </div>
+      </div>
     </Layout>
     </>
   )
-}
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const recentPosts = await sanityClient.fetch(
-    // Fetch 5 most recent posts
-    `*[_type == "post"] | order(_createdAt desc)[0...5]`
-  );
-
-  return {
-    props: {
-      recentPosts,
-    }
-  }
 }

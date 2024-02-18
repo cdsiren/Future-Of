@@ -20,7 +20,7 @@ const Metadata = (props:any) => {
           name="viewport"
           content="initial-scale=0.6, width=500"
         />
-        <link rel="icon" href="/forb.png" />
+        <link rel="icon" href="/borb.png" />
         {/* facebook open graph tags */}
         <meta property='og:type' content="website" />
         <meta property='og:url' content={props.url || fallbackUrl} />

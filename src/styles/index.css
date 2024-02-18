@@ -19,6 +19,16 @@
     }
   }
 
+  .custom-highlight1::selection {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+  }
+
+  .custom-highlight2::selection {
+    background-color: #000000; /* Tailwind color like 'purple-200' */
+    color: rgb(255, 255, 255);
+  }
+  
   .accordion {
     display: flex;
     flex-direction: column;

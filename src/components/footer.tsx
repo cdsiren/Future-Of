@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { RxTwitterLogo } from "react-icons/rx";
 import { AiOutlineMail } from "react-icons/ai";
-import EmailCapture from './email-capture';
+import EmailCapture from './email/email-capture';
 
 const Footer = (props:any) => {
   return (
