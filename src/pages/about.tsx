@@ -1,18 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import Navbar from '../components/nav';
 import { sanityClient } from '../lib/sanity/sanity';
 import { GetServerSideProps } from 'next';
 import About from '../components/about';
 import Layout from '../components/layout';
 import CtaBox from '../components/email/cta-box';
+import { getLinks } from '../lib/sanity/getLinks';
 
 type Props = {
-  authors: any,
+  about: any,
   slug: string,
 }
 
-export default function AboutPage({ authors, slug }: Props) {
-  const author = authors[0];
+export default function AboutPage({ about, slug }: Props) {
+  const [links, setLinks] = useState([]);
+  useMemo(() => {
+    async function load(){
+      const urls = await getLinks();
+      setLinks(urls)
+    }
+    load();
+  }, []);
+
+  const description = about[0];
   
   const [currentDateTime, setCurrentDateTime] = useState('');
   useEffect(() => {
@@ -37,9 +47,9 @@ export default function AboutPage({ authors, slug }: Props) {
     <>
     <Layout>
       <Navbar className="sticky top-0" date={currentDateTime} page={slug}/>
-      <div className='flex flex-wrap gap-4 justify-center items-center w-full'>
-        <div className='h-[500px]'>
-          <About author={author} />
+      <div className='flex flex-wrap gap-4 justify-between p-8 items-center w-full'>
+        <div className='h-[500px] flex justify-start'>
+          <About about={description} links={links} />
         </div>
         <div>
           <CtaBox />
@@ -51,12 +61,12 @@ export default function AboutPage({ authors, slug }: Props) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const authors = await sanityClient.fetch(`*[_type == "author"]`);
+  const about = await sanityClient.fetch(`*[_type == "about"]`);
 
   return {
     props: {
       slug: context.resolvedUrl.slice(1),
-      authors
+      about
     }
   }
 }

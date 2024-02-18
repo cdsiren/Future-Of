@@ -19,7 +19,6 @@ type Props = {
 
 export default function Post({ post, slug }: Props) {
   const title = `${post.title}`
-  console.log(post)
 
   return <>
     <Layout>

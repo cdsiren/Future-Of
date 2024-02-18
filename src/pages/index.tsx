@@ -34,7 +34,7 @@ export default function Index({ recentPosts }: Props) {
       <Navbar className="sticky top-0" date={currentDateTime} home />
 
       <div className='flex flex-col justify-center h-[65vh] space-y-16'>
-        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/3'>
           <CtaBox />
         </div>
         <div className='grid grid-cols-4 w-full place-items-center'>

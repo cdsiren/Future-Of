@@ -1,26 +1,28 @@
-import Link from 'next/link';
-import { RxTwitterLogo } from "react-icons/rx";
-import { AiOutlineMail } from "react-icons/ai";
-import EmailCapture from './email/email-capture';
+import { IoMdArrowUp } from "react-icons/io";
+import Link from "next/link";
+import { useScreenSize } from "../lib/contexts/useScreenSizeContext";
 
 const Footer = (props:any) => {
+  const { type } = useScreenSize();
+
   return (
-    <footer className={`${props.className} border-t border-black py-2 absolute bottom-0 w-full`}>
-      <div className='flex items-center gap-8 justify-center'>
-        <p className='uppercase font-light'>Contact</p>
-        <Link legacyBehavior href="https://twitter.com/jackieberardo">
-          <a target='_blank'>
-            <RxTwitterLogo className='hover:bg-black hover:text-white' />
-          </a>
-        </Link>
-        <div className='flex gap-4 items-center'>
-          <AiOutlineMail />
-          <EmailCapture />
+    <footer className={`${props.className} border-t ${type === 'mobile' ? 'border-white' : 'border-black'} p-8 w-full`}>
+      <div className='flex items-center justify-between font-thin'>
+        <div>
+          <p className="text-xl">Testing the future of ___________.</p>
+          <p className='pt-1'>© 2024 -</p>
         </div>
+        {props.links && <div className="flex gap-4">
+          {props.links.map((link, index) => (
+            <div key={index} className="flex items-center gap-2">
+              <Link target="_blank" href={link.url}>{link.name}</Link>
+              <IoMdArrowUp className='text-xl rotate-[45deg]' />
+            </div>
+          ))}
+        </div>}
       </div>
-      <div className='w-full text-center text-xs pt-1'>© 2024 -</div>
     </footer>
   )
 }
 
-export default Footer
+export default Footer;

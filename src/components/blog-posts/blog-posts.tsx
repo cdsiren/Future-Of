@@ -5,7 +5,6 @@ type Props = {
   posts: CleanSanityPost[];
 }
 const Work = ({ posts }: Props) => {
-  console.log(posts)
 
   return <div className={`w-full min-h-[83vh]`}>
     <div className="py-2 border-b border-black">
