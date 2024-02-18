@@ -1,8 +1,16 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../components/nav';
 import Layout from '../components/layout';
+import { GetServerSideProps } from 'next';
+import { sanityClient } from '../lib/sanity/sanity';
+import { SanityPost } from '../utils/types';
+import PostCard from '../components/post-card';
 
-export default function Index() {
+type Props = {
+  recentPosts: SanityPost[];
+}
+
+export default function Index({ recentPosts }: Props) {
   const [currentDateTime, setCurrentDateTime] = useState('');
   useEffect(() => {
     const updateDateTime = () => {
@@ -18,19 +26,28 @@ export default function Index() {
 
     updateDateTime();
     const intervalId = setInterval(updateDateTime, 1000);
-
     return () => clearInterval(intervalId);
   }, []);
 
   return (
     <>
     <Layout>
-    <div className='relative'>
-      <div id='navbar' className='absolute top-0 w-full'>
-        <Navbar className="sticky top-0" date={currentDateTime} home />
-      </div>
-    </div>
+      <Navbar className="sticky top-0" date={currentDateTime} home />
+
     </Layout>
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const recentPosts = await sanityClient.fetch(
+    // Fetch 5 most recent posts
+    `*[_type == "post"] | order(_createdAt desc)[0...5]`
+  );
+
+  return {
+    props: {
+      recentPosts,
+    }
+  }
 }

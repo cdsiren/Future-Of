@@ -48,7 +48,7 @@ export async function getBlogBySlug(slug: string) {
     title,
     body,
     author->{name, image},
-    categories[]->{title},
+    publication,
     mainImage,
     publishedAt,
     slug,
@@ -60,6 +60,15 @@ export async function getBlogBySlug(slug: string) {
     _updatedAt
   }`;
 
+  
   const post = await sanityClient.fetch(query, { slug });
-  return post;
+  const pubId = post.publication[0]._ref;
+  const pubRes = await sanityClient.fetch(`*[_type == "publication" && _id == $id]`, { id: pubId });
+  return {
+    ...post,
+    publication: {
+      name: pubRes[0].name,
+      url: pubRes[0].url
+    },
+  };
 }

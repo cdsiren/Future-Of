@@ -4,22 +4,13 @@ export interface ScreenSizeContext {
   type?: string;
 }
 
-interface SanityCategory {
-  _key: string,
-  _ref: string,
-  _type: string,
-  _updatedAt: Date,
-  description: string,
-  title: string
-}
-
 export interface SanityPost {
   author: {
     _ref: string,
     _type: string
   },
   body: Array<Object>,
-  categories: SanityCategory[],
+  publication: any,
   mainImage: {
     _type: string,
     asset: {
@@ -64,7 +55,7 @@ export interface SanityAuthor {
 };
 
 export interface CleanSanityPost extends SanityPost {
-  categoryName?: string;
+  pubName?: string;
   date?: string;
   image?: string;
 }

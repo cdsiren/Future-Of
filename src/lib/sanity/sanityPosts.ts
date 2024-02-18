@@ -12,14 +12,17 @@ export async function getCleanSanity({
 }){
 
   const postsWithCategories = await Promise.all(posts.map(async (post) => {
-    const categoryId = post.categories[0]._ref;
-    const categoryName = await cleanCategory(categoryId);
+    const pubId = post.publication[0]._ref;
+    const { name, url } = await cleanPublication(pubId);
     const date = formatIsoDate(String(post.publishedAt));
     const image = getImageUrl(post.mainImage.asset._ref);
 
     return {
       ...post,
-      categoryName,
+      publication: {
+        name, 
+        url
+      },
       date,
       image,
     };
@@ -28,11 +31,14 @@ export async function getCleanSanity({
   setCleanPosts(postsWithCategories);
 }
 
-async function cleanCategory(id: string) {
+async function cleanPublication(id: string) {
   try {
-    let res = await sanityClient.fetch(`*[_type == "category" && _id == $id]{title}`, { id });
-    return res[0].title;
+    let res = await sanityClient.fetch(`*[_type == "publication" && _id == $id]`, { id });
+    return {
+      name: res[0].name,
+      url: res[0].url
+    };
   } catch (e) {
-    console.log("Error fetching category name.");
+    console.log("Error fetching pub name.");
   }
 };

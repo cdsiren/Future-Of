@@ -19,6 +19,7 @@ type Props = {
 
 export default function Post({ post, slug }: Props) {
   const title = `${post.title}`
+  console.log(post)
 
   return <>
     <Layout>
@@ -36,6 +37,7 @@ export default function Post({ post, slug }: Props) {
               title={title}
               coverImage={getImageUrl(post.mainImage.asset._ref)}
               date={formatIsoDate(String(post.publishedAt))}
+              ogPublication={post.publication}
             />
             <div className={`3xl:max-w-6xl 3xl:text-3xl 2xl:text-xl text-base max-w-3xl mx-auto font-light pt-8`}>   
               <PortableText value={post.body as any} components={components as any} />

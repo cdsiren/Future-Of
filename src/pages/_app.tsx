@@ -58,7 +58,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   <ScreenSizeProvider>
     <div className={`${favorit.variable} font-mono ${monument.variable} font-sans`}>
       <Component {...pageProps} />
-      <Footer className={`3xl:text-3xl text-sm`} />
     </div>
     <Analytics />
   </ScreenSizeProvider>

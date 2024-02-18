@@ -5,13 +5,14 @@ type Props = {
   posts: CleanSanityPost[];
 }
 const Work = ({ posts }: Props) => {
+  console.log(posts)
 
   return <div className={`w-full min-h-[83vh]`}>
     <div className="py-2 border-b border-black">
       <div className='md:grid hidden grid-cols-6 text-xl px-8'>
         <p>N°</p>
         <p className='col-span-2'>Project</p>
-        <p>Type</p>
+        <p>Publication</p>
         <p>Topic</p>
         <p>Date</p>
       </div>
@@ -25,7 +26,7 @@ const Work = ({ posts }: Props) => {
           title={post.title}
           coverImage={post.image}
           date={post.date}
-          type={post.categoryName}
+          publication={post.publication}
           topic={post.topic}
           slug={post.slug.current}
         />

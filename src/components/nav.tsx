@@ -20,7 +20,7 @@ const Navbar = ({
   const { type, width, height } = useScreenSize();
 
   return (
-    <nav className={`${className} my-2`}>
+    <nav className={`${className} pt-2 z-50 ${type === 'mobile' ? 'bg-black' : 'bg-white'}`}>
       <div className={`${!home && 'border-b border-black'} pb-2 flex justify-between items-center`}>
         <div className="flex items-center pl-8">
           <Link href="/">
@@ -51,7 +51,7 @@ const Navbar = ({
           </div>
         }
       </div>
-      {home && <div className="py-2 flex border-y border-black justify-center text-7xl">
+      {home && <div className="py-2 flex border-y border-black justify-center text-7xl uppercase font-bold">
         Future Of
       </div>}
     </nav>

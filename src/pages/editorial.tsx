@@ -6,6 +6,8 @@ import { SanityPost, CleanSanityPost } from '../utils/types';
 import { getCleanSanity } from '../lib/sanity/sanityPosts';
 import { GetServerSideProps } from 'next';
 import Layout from '../components/layout';
+import { useScreenSize } from '../lib/contexts/useScreenSizeContext';
+import PostCard from '../components/post-card';
 
 type Props = {
   allPosts: SanityPost[],
@@ -14,6 +16,7 @@ type Props = {
 
 export default function Editorial({ allPosts, slug }: Props) {
   const posts = allPosts;
+  const { type } = useScreenSize();
   const [cleanPosts, setCleanPosts] = useState<CleanSanityPost[]>([]);
   
   const [currentDateTime, setCurrentDateTime] = useState('');
@@ -49,7 +52,17 @@ export default function Editorial({ allPosts, slug }: Props) {
     <>
     <Layout>
       <Navbar className="sticky top-0" date={currentDateTime} page={slug}/>
-      <BlogPosts posts={cleanPosts} />
+      {type !== 'mobile' && 
+        <div className='p-8 flex justify-center items-center'>
+          <div className='w-2/3 min-h-[500px] relative'>
+            <PostCard post={posts[0]} />
+          </div>
+        </div>
+      }
+      
+      <div className='mt-12'>
+        <BlogPosts posts={cleanPosts} />
+      </div>
     </Layout>
     </>
   )
@@ -57,7 +70,6 @@ export default function Editorial({ allPosts, slug }: Props) {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const allPosts = await sanityClient.fetch(`*[_type == "post"]`);
-  
 
   return {
     props: {
