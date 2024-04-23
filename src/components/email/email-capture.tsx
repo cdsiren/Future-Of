@@ -70,7 +70,7 @@ const EmailCapture = (props: any) => {
     </div>}
     {success || error ? <>
       <div id="emailHelp" className="text-green-500 text-xs text-center">{success && 'Successfully recorded'}</div>
-      <div id="emailHelp" className="text-red-500 text-xs text-center">{error && 'Error submitting email.'}</div>
+      <div id="emailHelp" className="text-orange-500 text-xs text-center">{error && 'Email already submitted.'}</div>
       </> :
       <div className='h-2'></div>
     }

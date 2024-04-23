@@ -48,7 +48,7 @@ export default function AboutPage({ about, slug }: Props) {
     <Layout>
       <Navbar className="sticky top-0" date={currentDateTime} page={slug}/>
       <div className='flex flex-wrap gap-4 justify-between p-8 items-center w-full'>
-        <div className='h-[500px] flex justify-start'>
+        <div className='h-[600px] flex justify-start'>
           <About about={description} links={links} />
         </div>
         <div>
